@@ -10,28 +10,53 @@ import UIKit
 
 private let reuseIdentifier = "IngridientsSelectionCell"
 
-class SearchCollectionViewController: UICollectionViewController {
+class SearchCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     
-    var ingridientsChoices : [(name: String, ingridients: Array<String>)] = []
-
+    var ingridientsChoices : [IngridientsChoice] = []
+    
+    var recipeSearchObject : RecipeSearch = RecipeSearch()
+    
+    @IBOutlet weak var revealButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.ingridientsChoices = [ (name: "Мясо", ingridients: ["Курица","Говядина"]),(name: "Морепродукты", ingridients: ["Лосось","Сибас"]), ]
-        print(self.ingridientsChoices)
-        // Do any additional setup after loading the view.
+        //Temporary
+        self.ingridientsChoices = [ IngridientsChoice(title: "Мясо",identifier: "meat", ingridients: "Курица,Говядина"), IngridientsChoice(title: "Морепродукты",identifier: "fish", ingridients: "Лосось,Говядина"),IngridientsChoice(title: "Овощи",identifier: "vegetables", ingridients: "Помидор,Томат"),IngridientsChoice(title: "Соусы",identifier: "sauce", ingridients: "Соевый, Ткемали"), ]
+        //populateIngridientsChoices()
+        /////////////////
+        
+        
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func populateIngridientsChoices() {
+        let path = Bundle.main.path(forResource: "choices", ofType: "txt")
+        
+        do{
+            let csv = try CSV(contentsOfURL: path!)
+            let rows = csv.rows
+            print(rows)
+        } catch let error as NSError
+        {
+            print(error.debugDescription)
+        }
     }
+    
+    
+    @IBAction func revealIngredientsChoicesButton(_ sender: AnyObject) {
+        
+        if self.revealViewController() != nil {
+            let revealController = self.revealViewController() as! RevealViewController
+            revealController.selectedIngridients = "Курица"
+            self.revealViewController().rightRevealToggle(animated: true)
+        }
+    }
+    
+    
+    
+    
 
     /*
     // MARK: - Navigation
@@ -58,13 +83,27 @@ class SearchCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? SearchCollectionViewCell)
+        if let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? SearchCollectionViewCell){
         
-        cell?.label.text = self.ingridientsChoices[indexPath.row].name
-        return cell!
+            cell.configureCell(choice: self.ingridientsChoices[indexPath.row])
+            return cell
+        }
+        else {
+            return UICollectionViewCell()
+        }
 
     }
 
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.view.frame.width/2.03, height:80)
+    }
+    
+    
     // MARK: UICollectionViewDelegate
 
     /*
