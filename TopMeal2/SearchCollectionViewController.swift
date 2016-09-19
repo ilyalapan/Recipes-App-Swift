@@ -15,7 +15,9 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
     
     var ingridientsChoices : [IngridientsChoice] = []
     
-    var recipeSearchObject : RecipeSearch = RecipeSearch()
+    var searchObject : RecipeSearch = RecipeSearch()
+    
+    var cookingTimeSliderValue: Float = 0.0
     
     @IBOutlet weak var revealButton: UIBarButtonItem!
     
@@ -23,14 +25,14 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
         super.viewDidLoad()
 
         //Temporary
-        self.ingridientsChoices = [ IngridientsChoice(title: "Мясо",identifier: "meat", ingridients: "Курица,Говядина"), IngridientsChoice(title: "Морепродукты",identifier: "fish", ingridients: "Лосось,Говядина"),IngridientsChoice(title: "Овощи",identifier: "vegetables", ingridients: "Помидор,Томат"),IngridientsChoice(title: "Соусы",identifier: "sauce", ingridients: "Соевый, Ткемали"), ]
+        self.ingridientsChoices = [ IngridientsChoice(title: "Мясо",identifier: "meat", ingridients:["Курица","Говядина"]), IngridientsChoice(title: "Морепродукты",identifier: "fish", ingridients: ["Лосось","Тунец"]),IngridientsChoice(title: "Овощи",identifier: "vegetables", ingridients: ["Помидор","Томат"]),IngridientsChoice(title: "Соусы",identifier: "sauce", ingridients: ["Помидор","Томат"]) , IngridientsChoice(title: "Приправы",identifier: "spices", ingridients: ["Карри","Тмин"]), ]
         //populateIngridientsChoices()
         /////////////////
         
-        
-        
     }
     
+    //TODO: Implement downlading of types and ingredients
+    /*
     func populateIngridientsChoices() {
         let path = Bundle.main.path(forResource: "choices", ofType: "txt")
         
@@ -43,13 +45,14 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
             print(error.debugDescription)
         }
     }
-    
+    */
     
     @IBAction func revealIngredientsChoicesButton(_ sender: AnyObject) {
         
         if self.revealViewController() != nil {
             let revealController = self.revealViewController() as! RevealViewController
-            revealController.selectedIngridients = "Курица"
+            revealController.selectedIngridients = self.searchObject.ingridients
+            print(self.searchObject.ingridients)
             self.revealViewController().rightRevealToggle(animated: true)
         }
     }
@@ -93,17 +96,48 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
         }
 
     }
-
+    
+    
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //
+        
+        let choice: IngridientsChoice! = self.ingridientsChoices[indexPath.row]
+        print(searchObject.ingridients) //debug
+        performSegue(withIdentifier: "ingredientsDetail", sender: choice)
+        
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if segue.identifier == "ingredientsDetail" {
+            if let detailsVC = segue.destination as? IngredientsDetailTableViewController {
+                if let choice = sender as? IngridientsChoice {
+                    detailsVC.ingredients = choice.ingridients
+                    detailsVC.searchObject = self.searchObject
+                }
+            }
+        }
+        
+    }
+
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: self.view.frame.width/2.03, height:80)
     }
     
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionElementKindSectionHeader:
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "mainHeader", for: indexPath) as! SearchCollectionReusableView
+            headerView.parent = self
+            return headerView
+        default:
+            assert(false, "Unexpected element kind")
+        }
+    }
     
+        
     // MARK: UICollectionViewDelegate
 
     /*
@@ -134,5 +168,4 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
     
     }
     */
-
 }

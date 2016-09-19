@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -11,7 +12,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Item 2-->
+        <!--View Controller-->
         <scene sceneID="3NP-Bs-5Iw">
             <objects>
                 <viewController id="xqH-B5-AMU" sceneMemberID="viewController">
@@ -24,7 +25,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="IyK-MO-i4s"/>
+                    <tabBarItem key="tabBarItem" systemItem="recents" id="IyK-MO-i4s"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z3i-XC-esZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -35,7 +36,7 @@
             <objects>
                 <navigationController id="TvI-6X-J40" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="g67-dd-XaU"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="K5B-IZ-k0q">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="K5B-IZ-k0q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -57,15 +58,15 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="aZC-iE-79H" kind="relationship" relationship="viewControllers" id="pJR-0G-0EB"/>
                         <segue destination="xqH-B5-AMU" kind="relationship" relationship="viewControllers" id="uJn-df-eSv"/>
-                        <segue destination="aZC-iE-79H" kind="relationship" relationship="viewControllers" id="hqL-WL-tVf"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0lU-S5-JrB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1310" y="-478"/>
         </scene>
-        <!--Item-->
+        <!--Поиск-->
         <scene sceneID="ODF-PF-hU5">
             <objects>
                 <viewController id="aZC-iE-79H" customClass="RevealViewController" customModule="TopMeal2" customModuleProvider="target" sceneMemberID="viewController">
@@ -78,7 +79,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Hi0-IA-EAx"/>
+                    <tabBarItem key="tabBarItem" title="Поиск" image="cookingpot" id="Hi0-IA-EAx"/>
                     <navigationItem key="navigationItem" id="AvA-8g-9I7"/>
                     <connections>
                         <segue destination="TvI-6X-J40" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="KVt-fs-rqA"/>
@@ -93,19 +94,19 @@
         <scene sceneID="vNb-14-ygo">
             <objects>
                 <collectionViewController id="Uyr-ox-Pe7" customClass="SearchCollectionViewController" customModule="TopMeal2" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="g9L-88-H5A">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="g9L-88-H5A">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93145573062529419" green="1" blue="0.84435709182639418" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="ywy-gf-skA">
                             <size key="itemSize" width="177" height="107"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="headerReferenceSize" width="50" height="264"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="IngridientsSelectionCell" id="1al-8a-EUW" customClass="SearchCollectionViewCell" customModule="TopMeal2" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="177" height="107"/>
+                                <rect key="frame" x="0.0" y="264" width="177" height="107"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="177" height="107"/>
@@ -135,6 +136,54 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="mainHeader" id="xO2-xf-cqq" customClass="SearchCollectionReusableView" customModule="TopMeal2" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="264"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="8cm-lX-F51">
+                                    <frame key="frameInset" minX="6" minY="81" width="363" height="31"/>
+                                    <connections>
+                                        <action selector="cookingTimeSliderValueChanged:" destination="xO2-xf-cqq" eventType="valueChanged" id="96R-gD-3Ub"/>
+                                    </connections>
+                                </slider>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AkM-pb-VtS">
+                                    <frame key="frameInset" minX="8" minY="149" width="359" height="30"/>
+                                    <state key="normal" title="Тип блюда"/>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Время приготовления: &lt;120 мин." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOk-R5-RGg">
+                                    <frame key="frameInset" minX="8" minY="27" width="359" height="28"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="359" id="6aa-7k-sl7"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ингридиенты:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Kn-le-73P">
+                                    <frame key="frameInset" minX="8" minY="201" width="359" height="43"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="4Kn-le-73P" firstAttribute="trailing" secondItem="xO2-xf-cqq" secondAttribute="trailingMargin" id="1sw-E8-J4U"/>
+                                <constraint firstItem="8cm-lX-F51" firstAttribute="leading" secondItem="xO2-xf-cqq" secondAttribute="leadingMargin" constant="3" id="FDc-Yo-V7d"/>
+                                <constraint firstItem="AkM-pb-VtS" firstAttribute="top" secondItem="8cm-lX-F51" secondAttribute="bottom" constant="38" id="UpX-SW-hgT"/>
+                                <constraint firstItem="8cm-lX-F51" firstAttribute="top" secondItem="zOk-R5-RGg" secondAttribute="bottom" constant="26" id="WkC-9l-gzH"/>
+                                <constraint firstItem="4Kn-le-73P" firstAttribute="leading" secondItem="xO2-xf-cqq" secondAttribute="leadingMargin" id="XVv-iq-xnY"/>
+                                <constraint firstItem="4Kn-le-73P" firstAttribute="top" secondItem="AkM-pb-VtS" secondAttribute="bottom" constant="57" id="b6q-we-eDc"/>
+                                <constraint firstItem="AkM-pb-VtS" firstAttribute="leading" secondItem="xO2-xf-cqq" secondAttribute="leadingMargin" id="dQc-6F-2Ha"/>
+                                <constraint firstItem="zOk-R5-RGg" firstAttribute="leading" secondItem="xO2-xf-cqq" secondAttribute="leadingMargin" id="ghk-CM-xYc"/>
+                                <constraint firstAttribute="trailingMargin" secondItem="zOk-R5-RGg" secondAttribute="trailing" id="kdd-Gy-aOj"/>
+                                <constraint firstItem="8cm-lX-F51" firstAttribute="trailing" secondItem="xO2-xf-cqq" secondAttribute="trailingMargin" constant="3" id="pfM-ee-zi2"/>
+                                <constraint firstItem="AkM-pb-VtS" firstAttribute="trailing" secondItem="xO2-xf-cqq" secondAttribute="trailingMargin" id="qjJ-2e-4AK"/>
+                                <constraint firstItem="zOk-R5-RGg" firstAttribute="top" secondItem="xO2-xf-cqq" secondAttribute="topMargin" constant="19" id="wDp-If-6S8"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="slider" destination="8cm-lX-F51" id="7g9-2H-DfV"/>
+                            </connections>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="Uyr-ox-Pe7" id="JQi-0D-QRr"/>
                             <outlet property="delegate" destination="Uyr-ox-Pe7" id="xyD-W6-y0U"/>
@@ -149,11 +198,40 @@
                     </navigationItem>
                     <connections>
                         <outlet property="revealButton" destination="dn5-Ta-cw7" id="z7G-Yd-vvG"/>
+                        <segue destination="MKG-Vz-JFd" kind="show" identifier="ingredientsDetail" id="TFf-U9-U7E"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Blh-bI-30G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1582" y="-813"/>
+            <point key="canvasLocation" x="1581.5999999999999" y="-813.64317841079469"/>
+        </scene>
+        <!--Ingredients Detail Table View Controller-->
+        <scene sceneID="UJl-KY-OvL">
+            <objects>
+                <tableViewController id="MKG-Vz-JFd" customClass="IngredientsDetailTableViewController" customModule="TopMeal2" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Dei-jH-vKO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ingredientCell" id="PMa-OV-pmF">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PMa-OV-pmF" id="Nlo-Be-aeQ">
+                                    <frame key="frameInset" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="MKG-Vz-JFd" id="R9c-7V-mpV"/>
+                            <outlet property="delegate" destination="MKG-Vz-JFd" id="kTE-TD-tFn"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R5f-R9-FHz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2609" y="-843"/>
         </scene>
         <!--Ingridients Choice Table View Controller-->
         <scene sceneID="tey-cE-DB3">
@@ -185,6 +263,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cookingpot" width="50" height="50"/>
         <image name="meat" width="266" height="400"/>
     </resources>
 </document>

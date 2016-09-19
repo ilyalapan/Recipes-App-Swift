@@ -10,8 +10,8 @@ import UIKit
 
 class IngridientsChoiceTableViewController: UITableViewController {
 
-    var selectedIngridients : String = ""
-    
+    var selectedIngridients: [String] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ingridientsChoiceCell")
@@ -37,13 +37,13 @@ class IngridientsChoiceTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return selectedIngridients.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ingridientsChoiceCell", for: indexPath)
-        cell.textLabel?.text = self.selectedIngridients
+        cell.textLabel?.text = self.selectedIngridients[indexPath.row]
         cell.textLabel?.textAlignment = NSTextAlignment.right
         // Configure the cell...
 

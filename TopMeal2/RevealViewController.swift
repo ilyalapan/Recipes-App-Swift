@@ -9,7 +9,9 @@
 import UIKit
 
 class RevealViewController: SWRevealViewController, SWRevealViewControllerDelegate {
-    var selectedIngridients: String = ""
+    
+    var selectedIngridients: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
@@ -25,6 +27,7 @@ class RevealViewController: SWRevealViewController, SWRevealViewControllerDelega
     func revealController(_ revealController: SWRevealViewController!, willMoveTo position: FrontViewPosition) {
         if let destination = revealController.rightViewController as? IngridientsChoiceTableViewController{
             destination.selectedIngridients = selectedIngridients
+            destination.tableView.reloadData()
         }
         
     }

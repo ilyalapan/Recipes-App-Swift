@@ -18,4 +18,6 @@ class RecipeSearch {
     var searchResults: [RecipeSearchResult] = []
     
     
+    
+    
 }

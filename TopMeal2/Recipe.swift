@@ -14,7 +14,7 @@ class Recipe {
     private var _name : String = ""
     
     var name: String {
-        return name
+        return self.name
     }
     
 }

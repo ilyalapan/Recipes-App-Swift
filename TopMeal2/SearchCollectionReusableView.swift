@@ -9,5 +9,14 @@
 import UIKit
 
 class SearchCollectionReusableView: UICollectionReusableView {
-        
+    @IBOutlet weak var slider: UISlider!
+    
+    weak var parent: SearchCollectionViewController?
+    
+    @IBAction func cookingTimeSliderValueChanged(_ sender: AnyObject) {
+        self.parent?.cookingTimeSliderValue = slider.value
+        //TODO: Implement changing label
+        print(self.parent?.cookingTimeSliderValue)
+    }
+    
 }
