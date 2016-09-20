@@ -11,10 +11,17 @@ import Foundation
 
 class Recipe {
     
-    private var _name : String = ""
+    var _name : String = ""
+    var _id: Int = 0
+    
+    //TODO: Need getters
     
     var name: String {
-        return self.name
+        return _name
     }
     
+    init(name: String, id: Int) {
+        _name = name
+        _id = id
+    }
 }

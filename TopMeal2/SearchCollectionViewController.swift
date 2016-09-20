@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Alamofire
+
+
 
 private let reuseIdentifier = "IngridientsSelectionCell"
 
@@ -20,6 +23,11 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
     var cookingTimeSliderValue: Float = 0.0
     
     @IBOutlet weak var revealButton: UIBarButtonItem!
+    
+    //Activity Indicator
+    var messageFrame = UIView()
+    var activityIndicator = UIActivityIndicatorView()
+    var strLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,6 +125,11 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
                 }
             }
         }
+        else if segue.identifier == "searchResultsSegue" {
+            if let searchResultVC = segue.destination as? SearchResultTableViewController {
+                
+            }
+        }
         
     }
 
@@ -137,7 +150,55 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
         }
     }
     
+    
+    func performRecipeSearch(){
         
+        let messages = ["Ищем что-то вкусненькое", "Ищем чего покушать", "В поисках самых лучших рецептов", "Ищем..."]
+        let randomIndex = Int(arc4random_uniform(UInt32(messages.count)))
+        self.progressBarDisplayer(msg: messages[randomIndex], true)
+        
+        
+        self.searchObject.loadInitialSearchResults{result in
+            if result == "Success" {
+                print(self.searchObject)
+                self.performSegue(withIdentifier: "searchResultsSegue", sender: self.searchObject)
+                self.messageFrame.removeFromSuperview()
+            }
+            else
+            {
+                //Output Error
+                let alert = UIAlertController(title: "Error", message: result, preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                self.messageFrame.removeFromSuperview()
+
+
+            }
+        }
+    }
+    
+    
+    func progressBarDisplayer(msg:String, _ indicator:Bool ) {
+        
+        let width = msg.characters.count * 10
+        //TODO: Make pretty
+        strLabel = UILabel(frame: CGRect(x: 50, y: 0, width: width, height: 50))
+        strLabel.text = msg
+        strLabel.textColor = UIColor.white
+        messageFrame = UIView(frame: CGRect(x: view.frame.midX - 140, y: view.frame.midY - 25 , width: 280, height: 50))
+        messageFrame.layer.cornerRadius = 15
+        messageFrame.backgroundColor = UIColor(white: 0, alpha: 0.7)
+        if indicator {
+            activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
+            activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+            activityIndicator.startAnimating()
+            messageFrame.addSubview(activityIndicator)
+        }
+        messageFrame.addSubview(strLabel)
+        self.view.addSubview(messageFrame)
+        
+    }
+    
     // MARK: UICollectionViewDelegate
 
     /*
