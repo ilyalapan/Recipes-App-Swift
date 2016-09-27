@@ -13,8 +13,9 @@ import Alamofire
 
 private let reuseIdentifier = "IngridientsSelectionCell"
 
-class SearchCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class SearchCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, SWRevealViewControllerDelegate{
 
+    @IBOutlet weak var dietButton: TagButton!
     
     var ingridientsChoices : [IngridientsChoice] = []
     
@@ -29,15 +30,59 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
     var activityIndicator = UIActivityIndicatorView()
     var strLabel = UILabel()
     
+    
+    
+    
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        self.revealViewController().delegate = self
+        self.revealViewController().panGestureRecognizer()
+        self.revealViewController().tapGestureRecognizer()
+        
+        
+        
+        //Create Floating button
+        let buttonWidth = CGFloat(120)
+        let buttonHeight = self.view.bounds.size.height * 0.05
+        let buttonY = self.view.bounds.size.height*0.91 - buttonHeight
+        let buttonX = self.view.bounds.size.width/2 - buttonWidth/2
+        let searchButton: UIButton = UIButton(frame: CGRect(x: buttonX, y: buttonY, width: buttonWidth, height: buttonHeight))
+        searchButton.layer.backgroundColor = UIColor.magenta.cgColor
+        searchButton.layer.cornerRadius = 10
+        searchButton.setTitle("Поиск", for: UIControlState.normal)
+        searchButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+        searchButton.addTarget(self, action: #selector(SearchCollectionViewController.performRecipeSearch), for: .touchUpInside)
+        //Shadow
+        searchButton.layer.masksToBounds = false
+        searchButton.layer.shadowRadius = 1.5
+        searchButton.layer.shadowOffset = CGSize(width: 0, height: 0.3)
+        searchButton.layer.shadowColor = UIColor.black.cgColor
+        searchButton.layer.shadowOpacity = 1.0
+        //Add to view
+        self.view.addSubview(searchButton)
+        self.view.bringSubview(toFront: searchButton)
+        searchButton.becomeFirstResponder()
+        
+        
         //Temporary
-        self.ingridientsChoices = [ IngridientsChoice(title: "Мясо",identifier: "meat", ingridients:["Курица","Говядина"]), IngridientsChoice(title: "Морепродукты",identifier: "fish", ingridients: ["Лосось","Тунец"]),IngridientsChoice(title: "Овощи",identifier: "vegetables", ingridients: ["Помидор","Томат"]),IngridientsChoice(title: "Соусы",identifier: "sauce", ingridients: ["Помидор","Томат"]) , IngridientsChoice(title: "Приправы",identifier: "spices", ingridients: ["Карри","Тмин"]), ]
+        self.ingridientsChoices = [ IngridientsChoice(title: "Мясо",identifier: "meat", ingridients:["Курица","Говядина"]), IngridientsChoice(title: "Морепродукты",identifier: "fish", ingridients: ["Лосось","Тунец"]),IngridientsChoice(title: "Овощи",identifier: "vegetables", ingridients: ["Помидор","Томат"]),IngridientsChoice(title: "Соусы",identifier: "sauce", ingridients: ["Помидор","Томат"]) , IngridientsChoice(title: "Приправы",identifier: "spices", ingridients: ["Карри","Тмин"]), IngridientsChoice(title: "Общее",identifier: "general", ingridients: ["Молоко","Яйцо","Лаваш","Черный Хлеб"]), ]
         //populateIngridientsChoices()
         /////////////////
         
+        
+        
     }
+    
+    
+    
+    
     
     //TODO: Implement downlading of types and ingredients
     /*
@@ -55,13 +100,16 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
     }
     */
     
+    
+    
+    
+    
+    //reveal the detail view with list of selected ingredients
     @IBAction func revealIngredientsChoicesButton(_ sender: AnyObject) {
         
         if self.revealViewController() != nil {
-            let revealController = self.revealViewController() as! RevealViewController
-            revealController.selectedIngridients = self.searchObject.ingridients
-            print(self.searchObject.ingridients)
-            self.revealViewController().rightRevealToggle(animated: true)
+            print(self.searchObject.ingridients)//Debug
+            self.revealViewController().rightRevealToggle(animated: true) //Reveal the table view to the right
         }
     }
     
@@ -69,26 +117,14 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
     
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
         return self.ingridientsChoices.count
     }
 
@@ -110,28 +146,9 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let choice: IngridientsChoice! = self.ingridientsChoices[indexPath.row]
-        print(searchObject.ingridients) //debug
         performSegue(withIdentifier: "ingredientsDetail", sender: choice)
-        
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        if segue.identifier == "ingredientsDetail" {
-            if let detailsVC = segue.destination as? IngredientsDetailTableViewController {
-                if let choice = sender as? IngridientsChoice {
-                    detailsVC.ingredients = choice.ingridients
-                    detailsVC.searchObject = self.searchObject
-                }
-            }
-        }
-        else if segue.identifier == "searchResultsSegue" {
-            if let searchResultVC = segue.destination as? SearchResultTableViewController {
-                
-            }
-        }
-        
-    }
 
     
     
@@ -139,11 +156,47 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
         return CGSize(width: self.view.frame.width/2.03, height:80)
     }
     
+    
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionElementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "mainHeader", for: indexPath) as! SearchCollectionReusableView
             headerView.parent = self
+            
+            // MARK: BEGIN Prepare buttons
+            let cornerRadius = CGFloat(15)
+            let borderWidth = CGFloat(0.5)
+            headerView.veganButton.layer.cornerRadius = cornerRadius
+            headerView.veganButton.layer.borderWidth = borderWidth
+            headerView.veganButton.layer.borderColor = UIColor.blue.cgColor
+            headerView.veganButton.active = false
+            
+            headerView.dietButton.layer.cornerRadius = cornerRadius
+            headerView.dietButton.layer.borderWidth = borderWidth
+            headerView.dietButton.layer.borderColor = UIColor.blue.cgColor
+            headerView.dietButton.active = false
+            
+            headerView.noGlutenButton.layer.cornerRadius = cornerRadius
+            headerView.noGlutenButton.layer.borderWidth = borderWidth
+            headerView.noGlutenButton.layer.borderColor = UIColor.blue.cgColor
+            headerView.noGlutenButton.active = false
+
+            headerView.noDairyButton.layer.cornerRadius = cornerRadius
+            headerView.noDairyButton.layer.borderWidth = borderWidth
+            headerView.noDairyButton.layer.borderColor = UIColor.blue.cgColor
+            headerView.noDairyButton.active = false
+
+            headerView.noNutsButton.layer.cornerRadius = cornerRadius
+            headerView.noNutsButton.layer.borderWidth = borderWidth
+            headerView.noNutsButton.layer.borderColor = UIColor.blue.cgColor
+            headerView.noNutsButton.active = false
+
+            headerView.noHoneyButton.layer.cornerRadius = cornerRadius
+            headerView.noHoneyButton.layer.borderWidth = borderWidth
+            headerView.noHoneyButton.layer.borderColor = UIColor.blue.cgColor
+            headerView.noHoneyButton.active = false
+            //MARK: END Prepare Button
+
             return headerView
         default:
             assert(false, "Unexpected element kind")
@@ -151,9 +204,24 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
     }
     
     
+    // MARK: SWRevealViewController Delegate
+
+    
+    func revealController(_ revealController: SWRevealViewController!, willMoveTo position: FrontViewPosition) {
+        if position == FrontViewPosition.leftSide {
+            if let destination = revealController.rightViewController as? IngridientsChoiceTableViewController {
+                destination.selectedIngridients = self.searchObject.ingridients
+                destination.tableView.reloadData()
+            }
+        }
+    }
+    
+    
+    //MARK: Recipe Search
+    
     func performRecipeSearch(){
         
-        let messages = ["Ищем что-то вкусненькое", "Ищем чего покушать", "В поисках самых лучших рецептов", "Ищем..."]
+        let messages = ["Ищем что-то вкусненькое", "Ищем чего покушать", "В поисках лучших рецептов", "Ищем...", "Подбираем...", "Ищем рецепт", "Опрашиваем своих \"Шеф-Поваров\" "] //Choose random meesage to display
         let randomIndex = Int(arc4random_uniform(UInt32(messages.count)))
         self.progressBarDisplayer(msg: messages[randomIndex], true)
         
@@ -180,12 +248,15 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
     
     func progressBarDisplayer(msg:String, _ indicator:Bool ) {
         
-        let width = msg.characters.count * 10
         //TODO: Make pretty
+        let font = UIFont.systemFont(ofSize: 16)
+        let myString: NSString = msg as NSString
+        let width = myString.size(attributes: [NSFontAttributeName:UIFont.systemFont(ofSize: 16.0)]).width+15
         strLabel = UILabel(frame: CGRect(x: 50, y: 0, width: width, height: 50))
+        strLabel.font = font
         strLabel.text = msg
         strLabel.textColor = UIColor.white
-        messageFrame = UIView(frame: CGRect(x: view.frame.midX - 140, y: view.frame.midY - 25 , width: 280, height: 50))
+        messageFrame = UIView(frame: CGRect(x: view.frame.midX - CGFloat(width+50)/2, y: view.frame.midY - 25 , width: CGFloat(width)+50, height: 50))
         messageFrame.layer.cornerRadius = 15
         messageFrame.backgroundColor = UIColor(white: 0, alpha: 0.7)
         if indicator {
@@ -199,34 +270,100 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
         
     }
     
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
+    
+    
+    //Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if segue.identifier == "ingredientsDetail" {
+            if let detailsVC = segue.destination as? IngredientsDetailTableViewController {
+                if let choice = sender as? IngridientsChoice {
+                    detailsVC.ingredients = choice.ingridients
+                    detailsVC.searchObject = self.searchObject
+                }
+            }
+        }
+        else if segue.identifier == "searchResultsSegue" {
+            if let searchResultVC = segue.destination as? SearchResultTableViewController {
+                searchResultVC.searchObject = self.searchObject
+            }
+        }
+        
     }
-    */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // MARK: Buttons Methods
+    
+    func veganButtonPressed(sender: TagButton){
+        if !sender.active {
+            sender.active = true
+            self.searchObject.vegan = true
+        }
+        else {
+            sender.active = false
+            self.searchObject.vegan = false
+        }
+    }
+    
+    func dietButtonPressed(sender: TagButton){
+        if !sender.active {
+            sender.active = true
+            self.searchObject.diet = true
+        }
+        else {
+            sender.active = false
+            self.searchObject.diet = false
+        }
+    }
+    
+    func noDairyButtonPressed(sender: TagButton){
+        if !sender.active {
+            sender.active = true
+            self.searchObject.noDairy = true
+        }
+        else {
+            sender.active = false
+            self.searchObject.noDairy = false
+        }
+    }
+    
+    func noNutsButtonPressed(sender: TagButton){
+        if !sender.active {
+            sender.active = true
+            self.searchObject.noNuts = true
+        }
+        else {
+            sender.active = false
+            self.searchObject.noNuts = false
+        }
+    }
+    
+    func noGlutenButtonPressed(sender: TagButton){
+        if !sender.active {
+            sender.active = true
+            self.searchObject.noGluten = true
+        }
+        else {
+            sender.active = false
+            self.searchObject.noGluten = false
+        }
+    }
+    
+
+
+    
+    
+
+    
 }

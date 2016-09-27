@@ -9,31 +9,82 @@
 import UIKit
 
 class SearchCollectionReusableView: UICollectionReusableView {
-    @IBOutlet weak var slider: UISlider!
-    @IBOutlet weak var sliderLabel: UILabel!
     
     weak var parent: SearchCollectionViewController?
+
+    
+    @IBOutlet weak var sliderLabel: UILabel!
+    @IBOutlet weak var slider: UISlider!
+    
+    
+    @IBOutlet weak var veganButton: TagButton!
+    @IBOutlet weak var dietButton: TagButton!
+    @IBOutlet weak var noDairyButton: TagButton!
+    @IBOutlet weak var noNutsButton: TagButton!
+    @IBOutlet weak var noGlutenButton: TagButton!
+    @IBOutlet weak var noHoneyButton: TagButton!
+        
+    
     
     @IBAction func cookingTimeSliderValueChanged(_ sender: AnyObject) {
         var value: Float = slider.value
-        if value<0.2 {
-            value = 0.2
+        if value<20 {
+            value = 20
         }
-        else if value > 0.2 && value < 0.4 {
-            value = 0.3
+        else if value > 20 && value < 40 {
+            value = 40
         }
-        else if  value < 0.4 && value < 0.6 {
-            value = 0.5
+        else if  value > 40 && value < 60 {
+            value = 60
         }
-        else {value = 0.8} //TODO
-        self.parent?.cookingTimeSliderValue = value
-        //TODO: Implement changing label
-        self.sliderLabel.text = "Время приготовления: <" + String(value*120) + "мин."
+        else if  value > 60 && value < 80 {
+            value = 80
+        }
+        else if  value > 80 && value < 100 {
+            value = 80
+        }
+        else if  value > 100 && value < 120 {
+            value = 120
+        }
+        else {value = 99999} //Set big enough so that everything fits the criterion
+        self.parent?.searchObject.cookingTime = Int(value)
+        if value != 99999 {
+            self.sliderLabel.text = "Время приготовления: <" + String(value) + "мин."
+        }
+        else {
+            self.sliderLabel.text = "Время приготовления: любое"
+        }
         print(self.parent?.cookingTimeSliderValue)
     }
-    @IBAction func searchButton(_ sender: AnyObject) {
-        self.parent?.performRecipeSearch() //TODO: Make Floating Button
-    }
     //TODO: Work on interface
+    
+    @IBAction func veganButtonPressed(_ sender: AnyObject) {
+        self.parent?.veganButtonPressed(sender: (sender as? TagButton)!)
+    }
+    
+    @IBAction func dietButtonPressed(_ sender: AnyObject) {
+        self.parent?.dietButtonPressed(sender: (sender as? TagButton)!)
+    }
+    
+    @IBAction func noDiaryButtonPressed(_ sender: AnyObject) { //TODO: Fix diary with dairy
+        self.parent?.noDairyButtonPressed(sender: (sender as? TagButton)!)
+    }
+    
+    @IBAction func noNutsButtonPressed(_ sender: AnyObject) {
+        self.parent?.noNutsButtonPressed(sender: (sender as? TagButton)!)
+    }
+    
+    @IBAction func noGlutenButtonPressed(_ sender: AnyObject) {
+        self.parent?.noGlutenButtonPressed(sender: (sender as? TagButton)!)
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }

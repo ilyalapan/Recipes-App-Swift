@@ -12,8 +12,17 @@ import Alamofire
 class RecipeSearch {
     
     var ingridients: [String] = []
-    var vegetarian: Bool = false
+    
+    var vegan: Bool = false
+    var diet: Bool = false
+    var noDairy: Bool = false
+    var noNuts: Bool = false
+    var noGluten: Bool = false
+    var noHoney: Bool = false
+    
     var cookingTime: Int = 0
+    
+    var noMoreResults: Bool = false
     
     var searchResults: [RecipeSearchResult] = []
     
@@ -21,9 +30,23 @@ class RecipeSearch {
     func searchResultsURLString() -> String{
         let ingredientStrings = self.ingridients.map{ $0.lowercased() }
         var URLString = "http://topmeal-142219.appspot.com/search?ingredients=" + ingredientStrings.joined(separator: ",").addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-        URLString = URLString + "&start=" + String(self.searchResults.count - 1) // (- 1) because indexing of search result starts from 0 in SQL
+        URLString = URLString + "&start=" + String(self.searchResults.count) // Do not need -1 correction
+        if vegan{
+            URLString += "&vegan=1"
+        }
+        if diet {
+            URLString += "&diet=1"
+        }
+        if noDairy {
+            URLString += "&noDairy=1" //TODO: Fix tags
+        }
+        if noHoney {
+            URLString += "&noHoney=1"
+        }
+        if noGluten {
+            URLString += "&noGluten=1"
+        }
         print(URLString) //DEBUG
-        //TODO: Add vegan, add cookingTime (server side too) and redo this using closures
         return URLString
     }
     
@@ -51,6 +74,7 @@ class RecipeSearch {
                 if let dict =  JSON as? Dictionary<String, AnyObject>{
                     if let searchResArray = dict["searchResults"] as? [Dictionary<String,AnyObject>] {
                         if searchResArray.count == 0 {
+                            self.noMoreResults = true
                             completed("No results")
                             return
                         }

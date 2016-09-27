@@ -4,7 +4,10 @@ use_frameworks!
 
 target 'TopMeal2' do
     pod 'Alamofire', '~> 4.0'
+    pod 'SDWebImage', '~>3.8' 
 end
+
+
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|

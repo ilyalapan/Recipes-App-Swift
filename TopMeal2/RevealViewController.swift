@@ -2,19 +2,17 @@
 //  RevealViewController.swift
 //  TopMeal2
 //
-//  Created by Ilya Lapan on 16/09/2016.
+//  Created by Ilya Lapan on 27/09/2016.
 //  Copyright © 2016 ilyaseva. All rights reserved.
 //
 
 import UIKit
 
-class RevealViewController: SWRevealViewController, SWRevealViewControllerDelegate {
-    
-    var selectedIngridients: [String] = []
-    
+class RevealViewController: SWRevealViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.delegate = self
+        
         // Do any additional setup after loading the view.
     }
 
@@ -23,15 +21,15 @@ class RevealViewController: SWRevealViewController, SWRevealViewControllerDelega
         // Dispose of any resources that can be recreated.
     }
     
-    
-    func revealController(_ revealController: SWRevealViewController!, willMoveTo position: FrontViewPosition) {
-        if let destination = revealController.rightViewController as? IngridientsChoiceTableViewController{
-            destination.selectedIngridients = selectedIngridients
-            destination.tableView.reloadData()
-        }
-        
-    }
 
-    
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
 
 }

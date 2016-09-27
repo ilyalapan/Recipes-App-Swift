@@ -13,11 +13,13 @@ class Recipe {
     
     var _name : String = ""
     var _id: Int = 0
-    
-    //TODO: Need getters
-    
+        
     var name: String {
         return _name
+    }
+    
+    var id: Int {
+        return _id
     }
     
     init(name: String, id: Int) {

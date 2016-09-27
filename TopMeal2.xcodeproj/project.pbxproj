@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7736DA511D91AF8300AE4792 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736DA501D91AF8300AE4792 /* SearchResultTableViewCell.swift */; };
 		7736DA531D91B8EE00AE4792 /* SearchResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736DA521D91B8EE00AE4792 /* SearchResultTableViewController.swift */; };
+		7736DA571D928FB300AE4792 /* TagButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736DA561D928FB300AE4792 /* TagButton.swift */; };
 		77839E731D8AD4CD0088B070 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77839E721D8AD4CD0088B070 /* AppDelegate.swift */; };
 		77839E781D8AD4CD0088B070 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77839E761D8AD4CD0088B070 /* Main.storyboard */; };
 		77839E7A1D8AD4CD0088B070 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77839E791D8AD4CD0088B070 /* Assets.xcassets */; };
@@ -21,13 +22,13 @@
 		77839E921D8B02300088B070 /* choices.csv in Resources */ = {isa = PBXBuildFile; fileRef = 77839E911D8B02300088B070 /* choices.csv */; };
 		77839E941D8B02A20088B070 /* choices.txt in Resources */ = {isa = PBXBuildFile; fileRef = 77839E931D8B02A20088B070 /* choices.txt */; };
 		77839E9C1D8B4ACF0088B070 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77839E9B1D8B4ACF0088B070 /* SWRevealViewController.m */; };
-		77839EA01D8B527D0088B070 /* RevealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77839E9F1D8B527D0088B070 /* RevealViewController.swift */; };
 		77839EA21D8B56550088B070 /* IngridientsChoiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77839EA11D8B56550088B070 /* IngridientsChoiceTableViewController.swift */; };
 		77839EA41D8BEFE30088B070 /* RecipeSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77839EA31D8BEFE30088B070 /* RecipeSearch.swift */; };
 		77839EA61D8BF0D20088B070 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77839EA51D8BF0D20088B070 /* Recipe.swift */; };
 		77839EA81D8BF3500088B070 /* RecipeSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77839EA71D8BF3500088B070 /* RecipeSearchResult.swift */; };
 		77839EAA1D8BFE750088B070 /* IngredientsDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77839EA91D8BFE750088B070 /* IngredientsDetailTableViewController.swift */; };
 		77839EB01D8C47430088B070 /* SearchCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77839EAF1D8C47430088B070 /* SearchCollectionReusableView.swift */; };
+		7794705A1D9A65850059ECF0 /* RevealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779470591D9A65850059ECF0 /* RevealViewController.swift */; };
 		9D67AF5E7EFD22A2FED3338B /* Pods_TopMeal2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC5641744CAC0DAC7B99648 /* Pods_TopMeal2.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		0D59B9402575A0B92E644B6F /* Pods-TopMeal2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TopMeal2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TopMeal2/Pods-TopMeal2.debug.xcconfig"; sourceTree = "<group>"; };
 		7736DA501D91AF8300AE4792 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		7736DA521D91B8EE00AE4792 /* SearchResultTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewController.swift; sourceTree = "<group>"; };
+		7736DA561D928FB300AE4792 /* TagButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagButton.swift; sourceTree = "<group>"; };
 		77839E6F1D8AD4CD0088B070 /* TopMeal2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopMeal2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77839E721D8AD4CD0088B070 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77839E771D8AD4CD0088B070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,13 +53,13 @@
 		77839E991D8B4ACF0088B070 /* TopMeal2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TopMeal2-Bridging-Header.h"; sourceTree = "<group>"; };
 		77839E9A1D8B4ACF0088B070 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		77839E9B1D8B4ACF0088B070 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
-		77839E9F1D8B527D0088B070 /* RevealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevealViewController.swift; sourceTree = "<group>"; };
 		77839EA11D8B56550088B070 /* IngridientsChoiceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngridientsChoiceTableViewController.swift; sourceTree = "<group>"; };
 		77839EA31D8BEFE30088B070 /* RecipeSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeSearch.swift; sourceTree = "<group>"; };
 		77839EA51D8BF0D20088B070 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		77839EA71D8BF3500088B070 /* RecipeSearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeSearchResult.swift; sourceTree = "<group>"; };
 		77839EA91D8BFE750088B070 /* IngredientsDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsDetailTableViewController.swift; sourceTree = "<group>"; };
 		77839EAF1D8C47430088B070 /* SearchCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCollectionReusableView.swift; sourceTree = "<group>"; };
+		779470591D9A65850059ECF0 /* RevealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevealViewController.swift; sourceTree = "<group>"; };
 		CCC5641744CAC0DAC7B99648 /* Pods_TopMeal2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TopMeal2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF2D6B7D62EC895F788E532D /* Pods-TopMeal2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TopMeal2.release.xcconfig"; path = "Pods/Target Support Files/Pods-TopMeal2/Pods-TopMeal2.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +128,7 @@
 				77839EAB1D8BFFC60088B070 /* Search Request */,
 				7736DA4F1D91AD9500AE4792 /* Search Results */,
 				77839E721D8AD4CD0088B070 /* AppDelegate.swift */,
+				7736DA561D928FB300AE4792 /* TagButton.swift */,
 				77839E761D8AD4CD0088B070 /* Main.storyboard */,
 				77839EA51D8BF0D20088B070 /* Recipe.swift */,
 				77839EA71D8BF3500088B070 /* RecipeSearchResult.swift */,
@@ -188,7 +191,7 @@
 		77839EAE1D8C002A0088B070 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				77839E9F1D8B527D0088B070 /* RevealViewController.swift */,
+				779470591D9A65850059ECF0 /* RevealViewController.swift */,
 				77839EA91D8BFE750088B070 /* IngredientsDetailTableViewController.swift */,
 				77839E841D8AD50E0088B070 /* SearchCollectionViewController.swift */,
 				77839EA11D8B56550088B070 /* IngridientsChoiceTableViewController.swift */,
@@ -231,6 +234,7 @@
 				TargetAttributes = {
 					77839E6E1D8AD4CD0088B070 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = VTF7ZS3TTW;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
@@ -331,11 +335,12 @@
 				77839E871D8AD5700088B070 /* SearchCollectionViewCell.swift in Sources */,
 				77839EA41D8BEFE30088B070 /* RecipeSearch.swift in Sources */,
 				7736DA531D91B8EE00AE4792 /* SearchResultTableViewController.swift in Sources */,
+				7794705A1D9A65850059ECF0 /* RevealViewController.swift in Sources */,
 				77839E9C1D8B4ACF0088B070 /* SWRevealViewController.m in Sources */,
-				77839EA01D8B527D0088B070 /* RevealViewController.swift in Sources */,
 				77839EA21D8B56550088B070 /* IngridientsChoiceTableViewController.swift in Sources */,
 				77839EB01D8C47430088B070 /* SearchCollectionReusableView.swift in Sources */,
 				77839EA81D8BF3500088B070 /* RecipeSearchResult.swift in Sources */,
+				7736DA571D928FB300AE4792 /* TagButton.swift in Sources */,
 				7736DA511D91AF8300AE4792 /* SearchResultTableViewCell.swift in Sources */,
 				77839EA61D8BF0D20088B070 /* Recipe.swift in Sources */,
 			);
@@ -460,6 +465,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = VTF7ZS3TTW;
 				INFOPLIST_FILE = TopMeal2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ilyaseva.TopMeal2;
@@ -476,6 +482,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = VTF7ZS3TTW;
 				INFOPLIST_FILE = TopMeal2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ilyaseva.TopMeal2;

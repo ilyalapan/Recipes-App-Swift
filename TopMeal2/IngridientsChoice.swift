@@ -9,6 +9,8 @@
 import Foundation
 
 class  IngridientsChoice  {
+    
+    
     private var _title: String = ""
     private var _identifier: String = ""
     private var _ingridients: [String] = []
