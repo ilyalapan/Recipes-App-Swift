@@ -26,4 +26,9 @@ class Recipe {
         _name = name
         _id = id
     }
+    
+    
+    var thumbnailImageURLString: String {
+        return "http://topmeal-142219.appspot.com/get_image?type=thumbnail&id=" + String(_id)
+    }
 }

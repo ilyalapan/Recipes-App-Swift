@@ -12,6 +12,7 @@ import Alamofire
 class RecipeSearch {
     
     var ingridients: [String] = []
+    var types: [String] = []
     
     var vegan: Bool = false
     var diet: Bool = false
@@ -46,6 +47,9 @@ class RecipeSearch {
         if noGluten {
             URLString += "&noGluten=1"
         }
+        
+        URLString += "&type=" + self.types.joined(separator: ",")
+        
         print(URLString) //DEBUG
         return URLString
     }

@@ -13,6 +13,7 @@ import Alamofire
 
 private let reuseIdentifier = "IngridientsSelectionCell"
 
+
 class SearchCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, SWRevealViewControllerDelegate{
 
     @IBOutlet weak var dietButton: TagButton!
@@ -32,12 +33,6 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
     
     
     
-    
-    
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,8 +40,7 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
         self.revealViewController().delegate = self
         self.revealViewController().panGestureRecognizer()
         self.revealViewController().tapGestureRecognizer()
-        
-        
+        self.revealViewController().panGestureRecognizer().isEnabled = false
         
         //Create Floating button
         let buttonWidth = CGFloat(120)
@@ -72,7 +66,7 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
         
         
         //Temporary
-        self.ingridientsChoices = [ IngridientsChoice(title: "Мясо",identifier: "meat", ingridients:["Курица","Говядина"]), IngridientsChoice(title: "Морепродукты",identifier: "fish", ingridients: ["Лосось","Тунец"]),IngridientsChoice(title: "Овощи",identifier: "vegetables", ingridients: ["Помидор","Томат"]),IngridientsChoice(title: "Соусы",identifier: "sauce", ingridients: ["Помидор","Томат"]) , IngridientsChoice(title: "Приправы",identifier: "spices", ingridients: ["Карри","Тмин"]), IngridientsChoice(title: "Общее",identifier: "general", ingridients: ["Молоко","Яйцо","Лаваш","Черный Хлеб"]), ]
+        self.ingridientsChoices = [ IngridientsChoice(title: "Мясо",identifier: "meat", ingridients:["Курица","Говядина","Баранина","Телятина"]), IngridientsChoice(title: "Морепродукты",identifier: "fish", ingridients: ["Лосось","Тунец"]),IngridientsChoice(title: "Овощи",identifier: "vegetables", ingridients: ["Томат","Огурец","Баклажан","Лук","Чеснок","Соевые ростки","Кукуруза"]),IngridientsChoice(title: "Соусы",identifier: "sauce", ingridients: ["Соевый соус","Томат"]) , IngridientsChoice(title: "Приправы",identifier: "spices", ingridients: ["Карри","Тмин"]), IngridientsChoice(title: "Мучное",identifier: "bread", ingridients: ["Лаваш","Черный Хлеб","Пшеничная Лапша","Гречневая Лапша"]), IngridientsChoice(title: "Общее",identifier: "general", ingridients: ["Молоко","Яйцо","Куриный бульон в кубиках","Пармезан"]), ]
         //populateIngridientsChoices()
         /////////////////
         
@@ -152,10 +146,6 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
 
     
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.width/2.03, height:80)
-    }
-    
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
@@ -198,10 +188,27 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
             //MARK: END Prepare Button
 
             return headerView
+        case UICollectionElementKindSectionFooter:
+            let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "mainFooter", for: indexPath) 
+            return footerView
+
         default:
             assert(false, "Unexpected element kind")
         }
     }
+    
+    
+    
+    
+    // MARK: Collection View Layout
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.view.frame.width/2.03, height:80)
+    }
+    
+    
+    
+    
     
     
     // MARK: SWRevealViewController Delegate
@@ -211,9 +218,11 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
         if position == FrontViewPosition.leftSide {
             if let destination = revealController.rightViewController as? IngridientsChoiceTableViewController {
                 destination.selectedIngridients = self.searchObject.ingridients
+                self.revealViewController().panGestureRecognizer().isEnabled = true //enable pan gesture to allow to get back to original view
                 destination.tableView.reloadData()
             }
         }
+        
     }
     
     
@@ -273,7 +282,7 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
     
     
     
-    //Segue
+    //MARK: prepare for segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -290,16 +299,13 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
                 searchResultVC.searchObject = self.searchObject
             }
         }
+        else if segue.identifier == "typeDetail" {
+            if let typeDetailVC = segue.destination as? RecipeTypeCollectionViewController {
+                typeDetailVC.searchObject = self.searchObject
+            }
+        }
         
     }
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -359,11 +365,7 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
             self.searchObject.noGluten = false
         }
     }
-    
-
 
     
-    
-
     
 }

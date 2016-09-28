@@ -31,7 +31,7 @@ class SearchResultTableViewCell: UITableViewCell {
     
     func configureCell(searchResult: RecipeSearchResult)
     {
-        let URL = NSURL(string: "http://topmeal-142219.appspot.com/get_image?type=thumbnail&id=" + String(searchResult.id)) //TODO: encapsulate properly
+        let URL = NSURL(string: searchResult.thumbnailImageURLString)
         self.thumbnailImageView.sd_setImage(with: URL?.absoluteURL, placeholderImage: #imageLiteral(resourceName: "Taco-96"))
         self.nameLabel.text = searchResult.name
         self.matchRatingLabel.text = String(searchResult.matchRating) + "%"

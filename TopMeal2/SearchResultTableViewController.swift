@@ -16,7 +16,7 @@ class SearchResultTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(self.searchObject.types)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -32,12 +32,10 @@ class SearchResultTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return searchObject.searchResults.count
     }
 
@@ -51,7 +49,7 @@ class SearchResultTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if ( indexPath.row == (self.searchObject.searchResults.count - 1) ) && (!self.searchObject.noMoreResults) //TODO: Check that
+        if ( indexPath.row == (self.searchObject.searchResults.count - 1) ) && (!self.searchObject.noMoreResults)
         {
             self.searchObject.loadNextSearchResults{result in
                 if result == "Success"{

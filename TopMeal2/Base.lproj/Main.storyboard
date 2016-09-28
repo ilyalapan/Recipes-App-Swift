@@ -36,7 +36,7 @@
             <objects>
                 <navigationController id="TvI-6X-J40" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="g67-dd-XaU"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="K5B-IZ-k0q">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="K5B-IZ-k0q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -94,14 +94,14 @@
         <scene sceneID="vNb-14-ygo">
             <objects>
                 <collectionViewController id="Uyr-ox-Pe7" customClass="SearchCollectionViewController" customModule="TopMeal2" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="g9L-88-H5A">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="g9L-88-H5A">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="ywy-gf-skA">
                             <size key="itemSize" width="177" height="107"/>
                             <size key="headerReferenceSize" width="50" height="311"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="50" height="70"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
@@ -215,6 +215,9 @@
                                         <constraint firstAttribute="width" constant="359" id="Jej-q6-3gh"/>
                                     </constraints>
                                     <state key="normal" title="Тип блюда"/>
+                                    <connections>
+                                        <segue destination="HqS-B0-CE4" kind="show" identifier="typeDetail" id="Y7c-73-2ku"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <constraints>
@@ -264,6 +267,10 @@
                                 <outlet property="veganButton" destination="pXi-7V-zqi" id="Omt-uy-jWG"/>
                             </connections>
                         </collectionReusableView>
+                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="mainFooter" id="cbr-MW-A03">
+                            <rect key="frame" x="0.0" y="418" width="375" height="70"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="Uyr-ox-Pe7" id="JQi-0D-QRr"/>
                             <outlet property="delegate" destination="Uyr-ox-Pe7" id="xyD-W6-y0U"/>
@@ -284,7 +291,70 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Blh-bI-30G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1581.5999999999999" y="-813.64317841079469"/>
+            <point key="canvasLocation" x="1420" y="-813"/>
+        </scene>
+        <!--Recipe Type Collection View Controller-->
+        <scene sceneID="EeW-qJ-ctS">
+            <objects>
+                <collectionViewController id="HqS-B0-CE4" customClass="RecipeTypeCollectionViewController" customModule="TopMeal2" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="q9b-gD-XC4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ula-ra-vUx">
+                            <size key="itemSize" width="175" height="94"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="typeCell" id="abx-qJ-tWZ" customClass="TypeCollectionViewCell" customModule="TopMeal2" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="177" height="107"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="177" height="107"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Taco-96" translatesAutoresizingMaskIntoConstraints="NO" id="qhu-c7-k3e">
+                                            <frame key="frameInset" width="177" height="107"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Checked-80" translatesAutoresizingMaskIntoConstraints="NO" id="KXC-K4-htd">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="CT9-M1-ls6"/>
+                                                <constraint firstAttribute="height" constant="50" id="U0j-3c-rrh"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqi-Ch-l1O">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="KXC-K4-htd" secondAttribute="bottom" id="11m-I1-67l"/>
+                                    <constraint firstItem="rqi-Ch-l1O" firstAttribute="centerX" secondItem="abx-qJ-tWZ" secondAttribute="centerX" id="Bpb-b3-7G6"/>
+                                    <constraint firstAttribute="trailing" secondItem="KXC-K4-htd" secondAttribute="trailing" id="XE8-ff-wM0"/>
+                                    <constraint firstItem="rqi-Ch-l1O" firstAttribute="centerY" secondItem="abx-qJ-tWZ" secondAttribute="centerY" id="q3r-Ir-cyt"/>
+                                </constraints>
+                                <size key="customSize" width="177" height="107"/>
+                                <connections>
+                                    <outlet property="checkImageView" destination="KXC-K4-htd" id="Fnh-GP-HKG"/>
+                                    <outlet property="imageView" destination="qhu-c7-k3e" id="Sx0-q4-vUy"/>
+                                    <outlet property="label" destination="rqi-Ch-l1O" id="E31-yH-OBP"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="HqS-B0-CE4" id="8rh-Iw-gUU"/>
+                            <outlet property="delegate" destination="HqS-B0-CE4" id="2a5-9s-cYd"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RAj-fn-meY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2080.8000000000002" y="-1479.3103448275863"/>
         </scene>
         <!--Search Result Table View Controller-->
         <scene sceneID="hqu-Qd-IyS">
@@ -302,7 +372,7 @@
                                     <frame key="frameInset" width="375" height="130"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mQS-bu-PiM">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mQS-bu-PiM">
                                             <frame key="frameInset" minX="8" minY="10" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -361,7 +431,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Os-N9-N36" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2480.8000000000002" y="-1226.5367316341831"/>
+            <point key="canvasLocation" x="2881" y="-1222"/>
         </scene>
         <!--Ingredients Detail Table View Controller-->
         <scene sceneID="UJl-KY-OvL">
@@ -439,6 +509,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Checked-80" width="80" height="80"/>
+        <image name="Taco-96" width="96" height="96"/>
         <image name="cookingpot" width="50" height="50"/>
         <image name="meat" width="266" height="400"/>
     </resources>
