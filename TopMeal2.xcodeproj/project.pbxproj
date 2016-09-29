@@ -10,6 +10,7 @@
 		7736DA511D91AF8300AE4792 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736DA501D91AF8300AE4792 /* SearchResultTableViewCell.swift */; };
 		7736DA531D91B8EE00AE4792 /* SearchResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736DA521D91B8EE00AE4792 /* SearchResultTableViewController.swift */; };
 		7736DA571D928FB300AE4792 /* TagButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736DA561D928FB300AE4792 /* TagButton.swift */; };
+		7751A56A1D9D9C990000FED2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7751A5691D9D9C990000FED2 /* GoogleService-Info.plist */; };
 		77839E731D8AD4CD0088B070 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77839E721D8AD4CD0088B070 /* AppDelegate.swift */; };
 		77839E781D8AD4CD0088B070 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77839E761D8AD4CD0088B070 /* Main.storyboard */; };
 		77839E7D1D8AD4CD0088B070 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77839E7B1D8AD4CD0088B070 /* LaunchScreen.storyboard */; };
@@ -30,7 +31,7 @@
 		7794705A1D9A65850059ECF0 /* RevealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779470591D9A65850059ECF0 /* RevealViewController.swift */; };
 		7794705C1D9A9B530059ECF0 /* RecipeTypeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794705B1D9A9B530059ECF0 /* RecipeTypeCollectionViewController.swift */; };
 		7794705E1D9A9B8B0059ECF0 /* TypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794705D1D9A9B8B0059ECF0 /* TypeCollectionViewCell.swift */; };
-		779470601D9AA3920059ECF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7794705F1D9AA3920059ECF0 /* Assets.xcassets */; };
+		77B3407B1D9C32B600501EDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77B3407A1D9C32B600501EDF /* Assets.xcassets */; };
 		9D67AF5E7EFD22A2FED3338B /* Pods_TopMeal2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC5641744CAC0DAC7B99648 /* Pods_TopMeal2.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		7736DA501D91AF8300AE4792 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		7736DA521D91B8EE00AE4792 /* SearchResultTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewController.swift; sourceTree = "<group>"; };
 		7736DA561D928FB300AE4792 /* TagButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagButton.swift; sourceTree = "<group>"; };
+		7751A5691D9D9C990000FED2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		77839E6F1D8AD4CD0088B070 /* TopMeal2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopMeal2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77839E721D8AD4CD0088B070 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77839E771D8AD4CD0088B070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -63,7 +65,7 @@
 		779470591D9A65850059ECF0 /* RevealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevealViewController.swift; sourceTree = "<group>"; };
 		7794705B1D9A9B530059ECF0 /* RecipeTypeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeTypeCollectionViewController.swift; sourceTree = "<group>"; };
 		7794705D1D9A9B8B0059ECF0 /* TypeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeCollectionViewCell.swift; sourceTree = "<group>"; };
-		7794705F1D9AA3920059ECF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		77B3407A1D9C32B600501EDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCC5641744CAC0DAC7B99648 /* Pods_TopMeal2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TopMeal2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF2D6B7D62EC895F788E532D /* Pods-TopMeal2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TopMeal2.release.xcconfig"; path = "Pods/Target Support Files/Pods-TopMeal2/Pods-TopMeal2.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,7 +129,7 @@
 		77839E711D8AD4CD0088B070 /* TopMeal2 */ = {
 			isa = PBXGroup;
 			children = (
-				7794705F1D9AA3920059ECF0 /* Assets.xcassets */,
+				77B3407A1D9C32B600501EDF /* Assets.xcassets */,
 				77839E8E1D8AFC340088B070 /* Fonts */,
 				77839E981D8B4A3D0088B070 /* SWRevealViewController */,
 				77839EAB1D8BFFC60088B070 /* Search Request */,
@@ -142,6 +144,7 @@
 				77839E881D8AEC230088B070 /* meat.jpg */,
 				77839E7B1D8AD4CD0088B070 /* LaunchScreen.storyboard */,
 				77839E7E1D8AD4CD0088B070 /* Info.plist */,
+				7751A5691D9D9C990000FED2 /* GoogleService-Info.plist */,
 			);
 			path = TopMeal2;
 			sourceTree = "<group>";
@@ -270,10 +273,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				77839E941D8B02A20088B070 /* choices.txt in Resources */,
+				7751A56A1D9D9C990000FED2 /* GoogleService-Info.plist in Resources */,
 				77839E7D1D8AD4CD0088B070 /* LaunchScreen.storyboard in Resources */,
 				77839E8D1D8AFC2E0088B070 /* RobotoTTF in Resources */,
 				77839E891D8AEC230088B070 /* meat.jpg in Resources */,
-				779470601D9AA3920059ECF0 /* Assets.xcassets in Resources */,
+				77B3407B1D9C32B600501EDF /* Assets.xcassets in Resources */,
 				77839E781D8AD4CD0088B070 /* Main.storyboard in Resources */,
 				77839E921D8B02300088B070 /* choices.csv in Resources */,
 			);

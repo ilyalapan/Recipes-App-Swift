@@ -4,7 +4,12 @@ use_frameworks!
 
 target 'TopMeal2' do
     pod 'Alamofire', '~> 4.0'
-    pod 'SDWebImage', '~>3.8' 
+    pod 'SDWebImage', '~>3.8'
+    pod 'Firebase/Core'
+    pod 'Firebase/Auth'
+    pod 'Firebase/Database'
+    pod 'Firebase/Storage'
+
 end
 
 
