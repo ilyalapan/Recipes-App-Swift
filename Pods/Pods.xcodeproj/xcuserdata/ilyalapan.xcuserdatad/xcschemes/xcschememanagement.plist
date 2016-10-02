@@ -9,6 +9,21 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Bolts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FBSDKCoreKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FBSDKLoginKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-TopMeal2.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,7 +37,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4173203F7D743528AD46697B2336797F</key>
+		<key>084F0C2301303E33245C8745BE1D65E2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2E303C3CE7513908EE880D9CA833AFAE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>416CEC280F2A36CDC20ACDC895D55A7F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6EDC37F3FA92533C6AC3562458AA91F1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -32,7 +62,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F0F30C914050242765B5F8D079F28B8C</key>
+		<key>9D0F2E5EA1B46A5D72FFD42B0B39DBBC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

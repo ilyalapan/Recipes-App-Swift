@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		772FB0231DA0756400E0399C /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772FB0221DA0756400E0399C /* RegistrationViewController.swift */; };
+		772FB0251DA08AD900E0399C /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772FB0241DA08AD900E0399C /* SettingsTableViewController.swift */; };
 		7736DA511D91AF8300AE4792 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736DA501D91AF8300AE4792 /* SearchResultTableViewCell.swift */; };
 		7736DA531D91B8EE00AE4792 /* SearchResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736DA521D91B8EE00AE4792 /* SearchResultTableViewController.swift */; };
 		7736DA571D928FB300AE4792 /* TagButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736DA561D928FB300AE4792 /* TagButton.swift */; };
 		7751A56A1D9D9C990000FED2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7751A5691D9D9C990000FED2 /* GoogleService-Info.plist */; };
+		7764FD781D9DC56A00FA6C7D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7764FD771D9DC56A00FA6C7D /* LogInViewController.swift */; };
 		77839E731D8AD4CD0088B070 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77839E721D8AD4CD0088B070 /* AppDelegate.swift */; };
 		77839E781D8AD4CD0088B070 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77839E761D8AD4CD0088B070 /* Main.storyboard */; };
 		77839E7D1D8AD4CD0088B070 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77839E7B1D8AD4CD0088B070 /* LaunchScreen.storyboard */; };
@@ -37,10 +40,14 @@
 
 /* Begin PBXFileReference section */
 		0D59B9402575A0B92E644B6F /* Pods-TopMeal2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TopMeal2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TopMeal2/Pods-TopMeal2.debug.xcconfig"; sourceTree = "<group>"; };
+		772FB0221DA0756400E0399C /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		772FB0241DA08AD900E0399C /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		7736DA501D91AF8300AE4792 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		7736DA521D91B8EE00AE4792 /* SearchResultTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewController.swift; sourceTree = "<group>"; };
 		7736DA561D928FB300AE4792 /* TagButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagButton.swift; sourceTree = "<group>"; };
 		7751A5691D9D9C990000FED2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7764FD771D9DC56A00FA6C7D /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		7764FD791D9E864E00FA6C7D /* TopMeal2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TopMeal2.entitlements; sourceTree = "<group>"; };
 		77839E6F1D8AD4CD0088B070 /* TopMeal2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopMeal2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77839E721D8AD4CD0088B070 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77839E771D8AD4CD0088B070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -129,14 +136,18 @@
 		77839E711D8AD4CD0088B070 /* TopMeal2 */ = {
 			isa = PBXGroup;
 			children = (
+				7764FD791D9E864E00FA6C7D /* TopMeal2.entitlements */,
 				77B3407A1D9C32B600501EDF /* Assets.xcassets */,
 				77839E8E1D8AFC340088B070 /* Fonts */,
 				77839E981D8B4A3D0088B070 /* SWRevealViewController */,
 				77839EAB1D8BFFC60088B070 /* Search Request */,
 				7736DA4F1D91AD9500AE4792 /* Search Results */,
 				77839E721D8AD4CD0088B070 /* AppDelegate.swift */,
+				7764FD771D9DC56A00FA6C7D /* LogInViewController.swift */,
 				7736DA561D928FB300AE4792 /* TagButton.swift */,
 				77839E761D8AD4CD0088B070 /* Main.storyboard */,
+				772FB0241DA08AD900E0399C /* SettingsTableViewController.swift */,
+				772FB0221DA0756400E0399C /* RegistrationViewController.swift */,
 				77839EA51D8BF0D20088B070 /* Recipe.swift */,
 				77839EA71D8BF3500088B070 /* RecipeSearchResult.swift */,
 				77839E911D8B02300088B070 /* choices.csv */,
@@ -246,6 +257,11 @@
 						DevelopmentTeam = VTF7ZS3TTW;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -340,6 +356,8 @@
 			files = (
 				77839E851D8AD50E0088B070 /* SearchCollectionViewController.swift in Sources */,
 				77839E8B1D8AEF1F0088B070 /* IngridientsChoice.swift in Sources */,
+				772FB0231DA0756400E0399C /* RegistrationViewController.swift in Sources */,
+				7764FD781D9DC56A00FA6C7D /* LogInViewController.swift in Sources */,
 				77839E731D8AD4CD0088B070 /* AppDelegate.swift in Sources */,
 				77839EAA1D8BFE750088B070 /* IngredientsDetailTableViewController.swift in Sources */,
 				77839E871D8AD5700088B070 /* SearchCollectionViewCell.swift in Sources */,
@@ -352,6 +370,7 @@
 				7794705E1D9A9B8B0059ECF0 /* TypeCollectionViewCell.swift in Sources */,
 				77839EB01D8C47430088B070 /* SearchCollectionReusableView.swift in Sources */,
 				77839EA81D8BF3500088B070 /* RecipeSearchResult.swift in Sources */,
+				772FB0251DA08AD900E0399C /* SettingsTableViewController.swift in Sources */,
 				7736DA571D928FB300AE4792 /* TagButton.swift in Sources */,
 				7736DA511D91AF8300AE4792 /* SearchResultTableViewCell.swift in Sources */,
 				77839EA61D8BF0D20088B070 /* Recipe.swift in Sources */,
@@ -477,6 +496,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = TopMeal2/TopMeal2.entitlements;
 				DEVELOPMENT_TEAM = VTF7ZS3TTW;
 				INFOPLIST_FILE = TopMeal2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -494,6 +514,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = TopMeal2/TopMeal2.entitlements;
 				DEVELOPMENT_TEAM = VTF7ZS3TTW;
 				INFOPLIST_FILE = TopMeal2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
