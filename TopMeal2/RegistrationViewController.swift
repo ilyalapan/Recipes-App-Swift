@@ -25,7 +25,10 @@ class RegistrationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBOutlet weak var registrationButtonAction: UIButton!
+    
+    @IBAction func registerButtonAction(_ sender: AnyObject) {
+        //Register user
+    }
 
     /*
     // MARK: - Navigation

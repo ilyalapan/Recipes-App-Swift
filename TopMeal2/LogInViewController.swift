@@ -18,15 +18,23 @@ class LogInViewController: UIViewController {
     
     @IBOutlet weak var facebookLogInButton: UIButton!
     
+    @IBOutlet weak var logInButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        logInButton.layer.masksToBounds = false
+        logInButton.layer.shadowRadius = 9
+        logInButton.layer.shadowOffset = CGSize(width: 0, height: 5)
+        logInButton.layer.shadowColor = UIColor.black.cgColor
+        logInButton.layer.shadowOpacity = 0.3
 
-        // Do any additional setup after loading the view.
+        //TODO: Text background view shadow
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
         //Add animation code here
         
     }
