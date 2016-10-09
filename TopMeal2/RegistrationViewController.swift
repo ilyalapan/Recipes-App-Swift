@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class RegistrationViewController: UIViewController {
 
@@ -28,6 +29,18 @@ class RegistrationViewController: UIViewController {
     
     @IBAction func registerButtonAction(_ sender: AnyObject) {
         //Register user
+        self.view.isUserInteractionEnabled = false
+        let email = self.emailTextField.text
+        let password = self.passwordTextField.text
+        FIRAuth.auth()?.createUser(withEmail: email!, password: password!) { (user, error) in
+            self.view.isUserInteractionEnabled = true
+            if error == nil {
+                print("Email user registered in to Firebase")
+                UIApplication.shared.delegate?.window??.rootViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController() //TODO: Figure out why I have two ?? here
+                
+            }
+        }
+        
     }
 
     /*

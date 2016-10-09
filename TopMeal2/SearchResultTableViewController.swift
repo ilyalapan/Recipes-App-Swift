@@ -69,6 +69,10 @@ class SearchResultTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return self.view.frame.height / 4.66
+    }
+    
     /*
     // MARK: - Navigation
 

@@ -44,12 +44,12 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
         
         //Create Floating button
         let buttonWidth = CGFloat(120)
-        let buttonHeight = self.view.bounds.size.height * 0.05
-        let buttonY = self.view.bounds.size.height*0.91 - buttonHeight
+        let buttonHeight = self.view.bounds.size.height * 0.06
+        let buttonY = self.view.bounds.size.height*0.90 - buttonHeight
         let buttonX = self.view.bounds.size.width/2 - buttonWidth/2
         let searchButton: UIButton = UIButton(frame: CGRect(x: buttonX, y: buttonY, width: buttonWidth, height: buttonHeight))
-        searchButton.layer.backgroundColor = UIColor.magenta.cgColor
-        searchButton.layer.cornerRadius = 10
+        searchButton.layer.backgroundColor = UIColor.topMealGreen().cgColor
+        searchButton.layer.cornerRadius = 20
         searchButton.setTitle("Поиск", for: UIControlState.normal)
         searchButton.setTitleColor(UIColor.white, for: UIControlState.normal)
         searchButton.addTarget(self, action: #selector(SearchCollectionViewController.performRecipeSearch), for: .touchUpInside)
@@ -188,12 +188,9 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
             //MARK: END Prepare Button
 
             return headerView
-        case UICollectionElementKindSectionFooter:
+        default:
             let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "mainFooter", for: indexPath) 
             return footerView
-
-        default:
-            assert(false, "Unexpected element kind")
         }
     }
     
@@ -233,9 +230,10 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
         let messages = ["Ищем что-то вкусненькое", "Ищем чего покушать", "В поисках лучших рецептов", "Ищем...", "Подбираем...", "Ищем рецепт", "Опрашиваем своих \"Шеф-Поваров\" "] //Choose random meesage to display
         let randomIndex = Int(arc4random_uniform(UInt32(messages.count)))
         self.progressBarDisplayer(msg: messages[randomIndex], true)
-        
+        self.view.isUserInteractionEnabled = false
         
         self.searchObject.loadInitialSearchResults{result in
+            self.view.isUserInteractionEnabled = true
             if result == "Success" {
                 print(self.searchObject)
                 self.performSegue(withIdentifier: "searchResultsSegue", sender: self.searchObject)
@@ -257,7 +255,6 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
     
     func progressBarDisplayer(msg:String, _ indicator:Bool ) {
         
-        //TODO: Make pretty
         let font = UIFont.systemFont(ofSize: 16)
         let myString: NSString = msg as NSString
         let width = myString.size(attributes: [NSFontAttributeName:UIFont.systemFont(ofSize: 16.0)]).width+15

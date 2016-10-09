@@ -67,6 +67,10 @@ class RecipeSearch {
         
         let URLString = self.searchResultsURLString()
         print(URLString) //DEBUG
+        if self.ingridients.count == 0 {
+            completed("Не выбраны ингридиенты")
+            return
+        }
         Alamofire.request(URLString).responseJSON{ response in
             
             print(response.request) //DEBUG // original URL request

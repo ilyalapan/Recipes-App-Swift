@@ -14,7 +14,7 @@ class TagButton: UIButton {
     
     var active: Bool = false {
         didSet{
-            backgroundColor = active ? .red : .white
+            backgroundColor = active ? UIColor.topMealGreen() : .white
         }
 
     }

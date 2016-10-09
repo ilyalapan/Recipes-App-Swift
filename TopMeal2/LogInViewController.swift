@@ -20,6 +20,11 @@ class LogInViewController: UIViewController {
     
     @IBOutlet weak var logInButton: UIButton!
     
+    @IBOutlet weak var leftArmImageView: UIImageView!
+    @IBOutlet weak var rightArmImageView: UIImageView!
+    
+    private var armsInitialPosition: CGFloat = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,15 +35,65 @@ class LogInViewController: UIViewController {
         logInButton.layer.shadowOpacity = 0.3
 
         //TODO: Text background view shadow
+        
+        //register for keyboard notifications
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self,action: #selector(self.dismissKeyboard)))
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
-        //Add animation code here
+        self.navigationController?.navigationBar.isHidden = true //Hide navigation bar
+    }
+    
+    
+    //Animation is started from this method because here the sizes of the views are correct after AutoLayout finished its work
+    override func viewDidLayoutSubviews() {
+        self.armsInitialPosition = self.leftArmImageView.center.y
+        print("Initial position:", self.armsInitialPosition)
+        Timer.scheduledTimer(timeInterval: 6.0, target: self, selector: #selector(animateLogo), userInfo: nil, repeats: true)
+    }
+    
+    func animateLogo() {
+        UIView.animate(withDuration: 0.3, delay: 1, options: .curveEaseInOut, animations: {
+            self.leftArmImageView.center.y -= 15
+        }, completion: { finished in
+                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
+                    self.leftArmImageView.center.y = self.armsInitialPosition
+                }, completion: nil )
+        })
+        
+        UIView.animate(withDuration: 0.3, delay: 1.1, options: .curveEaseInOut, animations: {
+            self.rightArmImageView.center.y -= 15
+        }, completion: {finished in
+                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
+                    self.rightArmImageView.center.y = self.armsInitialPosition
+                    }, completion: nil )
+        })
         
     }
     
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
+    func keyboardWillHide(notification: NSNotification){
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
+    func keyboardWillShow(notification: NSNotification){
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue{
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height //TODO: adjust for button
+            }
+        }
+            
+    }
     
     @IBAction func signInButtonAction(_ sender: AnyObject) {
         if let email = self.emailField.text, let pwd = self.passwordField.text{
@@ -87,14 +142,11 @@ class LogInViewController: UIViewController {
 
     
     
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        self.navigationController?.navigationBar.isHidden = false
     }
-    */
 
 }

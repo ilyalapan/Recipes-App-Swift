@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>588615154874-7kv7k4ee4uvj9ronreeo568j87no2kov.apps.googleusercontent.com</string>
+	<string>588615154874-rquakus9etio4ka6b6q4uatr7dodohkf.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.588615154874-7kv7k4ee4uvj9ronreeo568j87no2kov</string>
+	<string>com.googleusercontent.apps.588615154874-rquakus9etio4ka6b6q4uatr7dodohkf</string>
 	<key>API_KEY</key>
 	<string>AIzaSyDOQIM-jBBJ5l5rfy93EAv8TfYZMbYHK3o</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>ilyaseva.TopMeal2</string>
+	<string>VTF7ZS3TTW.topmeal-142219.ilyalapan</string>
 	<key>PROJECT_ID</key>
 	<string>topmeal-142219</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:588615154874:ios:278741bf5cb10365</string>
+	<string>1:588615154874:ios:3b6711f771f308ee</string>
 	<key>DATABASE_URL</key>
 	<string>https://topmeal-142219.firebaseio.com</string>
 </dict>
