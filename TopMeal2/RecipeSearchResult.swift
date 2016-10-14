@@ -15,7 +15,7 @@ class RecipeSearchResult: Recipe {
     var matchRating: Int = 0
     
     init(dict: Dictionary<String,AnyObject>){
-        super.init( name: (dict["recipeName"] as? String)!, id: (dict["recipeID"] as? Int)!)
+        super.init( (dict["recipeName"] as? String)!, (dict["recipeID"] as? Int)!)
         matchRating = Int((dict["rating"] as? String)!)!
     }
 

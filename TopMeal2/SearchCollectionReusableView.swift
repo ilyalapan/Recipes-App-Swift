@@ -78,6 +78,9 @@ class SearchCollectionReusableView: UICollectionReusableView {
         self.parent?.noGlutenButtonPressed(sender: (sender as? TagButton)!)
     }
     
+    @IBAction func noHoneyByttonPressed(_ sender: AnyObject) {
+        self.parent?.noHoneyButtonPressed(sender: (sender as? TagButton)!)
+    }
     
     
     

@@ -39,13 +39,16 @@ class RecipeSearch {
             URLString += "&diet=1"
         }
         if noDairy {
-            URLString += "&noDairy=1" //TODO: Fix tags
+            URLString += "&nodairy=1"
+        }
+        if noHoney {
+            URLString += "&nohoney=1"
+        }
+        if noGluten {
+            URLString += "&nogluten=1"
         }
         if noHoney {
             URLString += "&noHoney=1"
-        }
-        if noGluten {
-            URLString += "&noGluten=1"
         }
         
         URLString += "&type=" + self.types.joined(separator: ",")

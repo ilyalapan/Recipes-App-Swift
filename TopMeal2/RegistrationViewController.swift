@@ -35,9 +35,13 @@ class RegistrationViewController: UIViewController {
         FIRAuth.auth()?.createUser(withEmail: email!, password: password!) { (user, error) in
             self.view.isUserInteractionEnabled = true
             if error == nil {
+                let userData = ["provider" : user?.providerID]
+                DataService.ds.createFirebaseDBUser(uid: (user?.uid)!, userData: userData as! Dictionary<String, String>)
                 print("Email user registered in to Firebase")
                 UIApplication.shared.delegate?.window??.rootViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController() //TODO: Figure out why I have two ?? here
-                
+            }
+            else {
+                print(error)
             }
         }
         

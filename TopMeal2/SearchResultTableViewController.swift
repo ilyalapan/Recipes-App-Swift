@@ -73,14 +73,36 @@ class SearchResultTableViewController: UITableViewController {
         return self.view.frame.height / 4.66
     }
     
-    /*
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let searchRes = self.searchObject.searchResults[indexPath.row]
+        self.performSegue(withIdentifier: "postSegue", sender: searchRes)
+    }
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        if segue.identifier == "postSegue" {
+            if let detailsVC = segue.destination as? PostViewController {
+                if let searchResult = sender as? RecipeSearchResult {
+                    detailsVC.recipe = searchResult as Recipe
+                }
+            }
+        }
     }
-    */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 }

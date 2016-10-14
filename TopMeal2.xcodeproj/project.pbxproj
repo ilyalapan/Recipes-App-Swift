@@ -13,7 +13,14 @@
 		7736DA531D91B8EE00AE4792 /* SearchResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736DA521D91B8EE00AE4792 /* SearchResultTableViewController.swift */; };
 		7736DA571D928FB300AE4792 /* TagButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736DA561D928FB300AE4792 /* TagButton.swift */; };
 		775EF93C1DA7AE43005FA117 /* UIColor+CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775EF93B1DA7AE42005FA117 /* UIColor+CustomColor.swift */; };
-		775EF9481DA99582005FA117 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 775EF9471DA99582005FA117 /* GoogleService-Info.plist */; };
+		775EF94D1DAAB6DA005FA117 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775EF94C1DAAB6DA005FA117 /* FeedViewController.swift */; };
+		775EF94F1DAABA1D005FA117 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 775EF94E1DAABA1D005FA117 /* GoogleService-Info.plist */; };
+		775EF9511DAEA6D5005FA117 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775EF9501DAEA6D5005FA117 /* DataService.swift */; };
+		775EF9531DAEDD7A005FA117 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775EF9521DAEDD79005FA117 /* FeedTableViewCell.swift */; };
+		775EF9551DAEDD8E005FA117 /* FeedPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775EF9541DAEDD8E005FA117 /* FeedPost.swift */; };
+		775EF9571DAEE5BB005FA117 /* FeedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775EF9561DAEE5BA005FA117 /* FeedObject.swift */; };
+		775EF9591DAFB7F8005FA117 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775EF9581DAFB7F8005FA117 /* PostViewController.swift */; };
+		775EF95B1DB0C613005FA117 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775EF95A1DB0C613005FA117 /* User.swift */; };
 		7764FD781D9DC56A00FA6C7D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7764FD771D9DC56A00FA6C7D /* LogInViewController.swift */; };
 		77839E731D8AD4CD0088B070 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77839E721D8AD4CD0088B070 /* AppDelegate.swift */; };
 		77839E781D8AD4CD0088B070 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77839E761D8AD4CD0088B070 /* Main.storyboard */; };
@@ -46,7 +53,14 @@
 		7736DA521D91B8EE00AE4792 /* SearchResultTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewController.swift; sourceTree = "<group>"; };
 		7736DA561D928FB300AE4792 /* TagButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagButton.swift; sourceTree = "<group>"; };
 		775EF93B1DA7AE42005FA117 /* UIColor+CustomColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+CustomColor.swift"; sourceTree = "<group>"; };
-		775EF9471DA99582005FA117 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		775EF94C1DAAB6DA005FA117 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		775EF94E1DAABA1D005FA117 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		775EF9501DAEA6D5005FA117 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		775EF9521DAEDD79005FA117 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		775EF9541DAEDD8E005FA117 /* FeedPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedPost.swift; sourceTree = "<group>"; };
+		775EF9561DAEE5BA005FA117 /* FeedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedObject.swift; sourceTree = "<group>"; };
+		775EF9581DAFB7F8005FA117 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		775EF95A1DB0C613005FA117 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7764FD771D9DC56A00FA6C7D /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		7764FD791D9E864E00FA6C7D /* TopMeal2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TopMeal2.entitlements; sourceTree = "<group>"; };
 		77839E6F1D8AD4CD0088B070 /* TopMeal2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopMeal2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				7736DA521D91B8EE00AE4792 /* SearchResultTableViewController.swift */,
+				775EF9581DAFB7F8005FA117 /* PostViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -234,12 +249,18 @@
 				775EF93D1DA90FB4005FA117 /* Login And Registration */,
 				775EF9491DAA948E005FA117 /* Feed */,
 				77839E721D8AD4CD0088B070 /* AppDelegate.swift */,
+				775EF94C1DAAB6DA005FA117 /* FeedViewController.swift */,
+				775EF9521DAEDD79005FA117 /* FeedTableViewCell.swift */,
+				775EF9541DAEDD8E005FA117 /* FeedPost.swift */,
+				775EF95A1DB0C613005FA117 /* User.swift */,
+				775EF9561DAEE5BA005FA117 /* FeedObject.swift */,
 				775EF93B1DA7AE42005FA117 /* UIColor+CustomColor.swift */,
 				772FB0241DA08AD900E0399C /* SettingsTableViewController.swift */,
 				77839E761D8AD4CD0088B070 /* Main.storyboard */,
+				775EF9501DAEA6D5005FA117 /* DataService.swift */,
 				77839E7B1D8AD4CD0088B070 /* LaunchScreen.storyboard */,
 				77839E7E1D8AD4CD0088B070 /* Info.plist */,
-				775EF9471DA99582005FA117 /* GoogleService-Info.plist */,
+				775EF94E1DAABA1D005FA117 /* GoogleService-Info.plist */,
 				77B3407A1D9C32B600501EDF /* Assets.xcassets */,
 				7764FD791D9E864E00FA6C7D /* TopMeal2.entitlements */,
 				77839E8E1D8AFC340088B070 /* Fonts */,
@@ -377,11 +398,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				77AE5A4D1DA6C6990015B43E /* bebas_neue in Resources */,
-				775EF9481DA99582005FA117 /* GoogleService-Info.plist in Resources */,
 				77839E7D1D8AD4CD0088B070 /* LaunchScreen.storyboard in Resources */,
 				77839E8D1D8AFC2E0088B070 /* RobotoTTF in Resources */,
 				77B3407B1D9C32B600501EDF /* Assets.xcassets in Resources */,
 				77839E781D8AD4CD0088B070 /* Main.storyboard in Resources */,
+				775EF94F1DAABA1D005FA117 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,12 +461,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				775EF94D1DAAB6DA005FA117 /* FeedViewController.swift in Sources */,
 				77839E851D8AD50E0088B070 /* SearchCollectionViewController.swift in Sources */,
 				77839E8B1D8AEF1F0088B070 /* IngridientsChoice.swift in Sources */,
 				77AE5A4B1DA658090015B43E /* PrettyNavigationBar.swift in Sources */,
+				775EF9531DAEDD7A005FA117 /* FeedTableViewCell.swift in Sources */,
 				772FB0231DA0756400E0399C /* RegistrationViewController.swift in Sources */,
 				7764FD781D9DC56A00FA6C7D /* LogInViewController.swift in Sources */,
 				77839E731D8AD4CD0088B070 /* AppDelegate.swift in Sources */,
+				775EF95B1DB0C613005FA117 /* User.swift in Sources */,
+				775EF9571DAEE5BB005FA117 /* FeedObject.swift in Sources */,
 				77839EAA1D8BFE750088B070 /* IngredientsDetailTableViewController.swift in Sources */,
 				77839E871D8AD5700088B070 /* SearchCollectionViewCell.swift in Sources */,
 				77839EA41D8BEFE30088B070 /* RecipeSearch.swift in Sources */,
@@ -453,9 +478,12 @@
 				7794705A1D9A65850059ECF0 /* RevealViewController.swift in Sources */,
 				7794705C1D9A9B530059ECF0 /* RecipeTypeCollectionViewController.swift in Sources */,
 				77839E9C1D8B4ACF0088B070 /* SWRevealViewController.m in Sources */,
+				775EF9591DAFB7F8005FA117 /* PostViewController.swift in Sources */,
 				77839EA21D8B56550088B070 /* IngridientsChoiceTableViewController.swift in Sources */,
+				775EF9511DAEA6D5005FA117 /* DataService.swift in Sources */,
 				7794705E1D9A9B8B0059ECF0 /* TypeCollectionViewCell.swift in Sources */,
 				77839EB01D8C47430088B070 /* SearchCollectionReusableView.swift in Sources */,
+				775EF9551DAEDD8E005FA117 /* FeedPost.swift in Sources */,
 				77839EA81D8BF3500088B070 /* RecipeSearchResult.swift in Sources */,
 				772FB0251DA08AD900E0399C /* SettingsTableViewController.swift in Sources */,
 				775EF93C1DA7AE43005FA117 /* UIColor+CustomColor.swift in Sources */,
