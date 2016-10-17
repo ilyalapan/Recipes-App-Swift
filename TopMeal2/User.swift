@@ -10,14 +10,24 @@ import Foundation
 
 
 class User {
-    let _uid : String
     
+    let _uid : String
+
     var uid : String {
         return _uid
     }
     
+    
+    var name : String = ""
+    
+    
     init(uid: String) {
         _uid = uid
+    }
+    
+    convenience init(uid: String, name: String) {
+        self.init(uid: uid)
+        self.name = name
     }
     
     func profileImageURLString()->String {

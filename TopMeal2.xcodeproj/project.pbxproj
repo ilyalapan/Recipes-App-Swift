@@ -22,6 +22,7 @@
 		775EF9591DAFB7F8005FA117 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775EF9581DAFB7F8005FA117 /* PostViewController.swift */; };
 		775EF95B1DB0C613005FA117 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775EF95A1DB0C613005FA117 /* User.swift */; };
 		7764FD781D9DC56A00FA6C7D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7764FD771D9DC56A00FA6C7D /* LogInViewController.swift */; };
+		777A7EA51DB44A6700825467 /* RequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777A7EA41DB44A6700825467 /* RequestHelper.swift */; };
 		77839E731D8AD4CD0088B070 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77839E721D8AD4CD0088B070 /* AppDelegate.swift */; };
 		77839E781D8AD4CD0088B070 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77839E761D8AD4CD0088B070 /* Main.storyboard */; };
 		77839E7D1D8AD4CD0088B070 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77839E7B1D8AD4CD0088B070 /* LaunchScreen.storyboard */; };
@@ -63,6 +64,7 @@
 		775EF95A1DB0C613005FA117 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7764FD771D9DC56A00FA6C7D /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		7764FD791D9E864E00FA6C7D /* TopMeal2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TopMeal2.entitlements; sourceTree = "<group>"; };
+		777A7EA41DB44A6700825467 /* RequestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestHelper.swift; sourceTree = "<group>"; };
 		77839E6F1D8AD4CD0088B070 /* TopMeal2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopMeal2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77839E721D8AD4CD0088B070 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77839E771D8AD4CD0088B070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				772FB0241DA08AD900E0399C /* SettingsTableViewController.swift */,
 				77839E761D8AD4CD0088B070 /* Main.storyboard */,
 				775EF9501DAEA6D5005FA117 /* DataService.swift */,
+				777A7EA41DB44A6700825467 /* RequestHelper.swift */,
 				77839E7B1D8AD4CD0088B070 /* LaunchScreen.storyboard */,
 				77839E7E1D8AD4CD0088B070 /* Info.plist */,
 				775EF94E1DAABA1D005FA117 /* GoogleService-Info.plist */,
@@ -476,6 +479,7 @@
 				77839EA41D8BEFE30088B070 /* RecipeSearch.swift in Sources */,
 				7736DA531D91B8EE00AE4792 /* SearchResultTableViewController.swift in Sources */,
 				7794705A1D9A65850059ECF0 /* RevealViewController.swift in Sources */,
+				777A7EA51DB44A6700825467 /* RequestHelper.swift in Sources */,
 				7794705C1D9A9B530059ECF0 /* RecipeTypeCollectionViewController.swift in Sources */,
 				77839E9C1D8B4ACF0088B070 /* SWRevealViewController.m in Sources */,
 				775EF9591DAFB7F8005FA117 /* PostViewController.swift in Sources */,

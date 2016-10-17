@@ -120,7 +120,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                                     </textField>
                                     <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aH0-MO-hkZ">
                                         <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
@@ -264,7 +264,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                                     </textField>
                                     <view alpha="0.10000000149011612" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="haK-Gh-P9D">
                                         <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
@@ -364,7 +364,7 @@
             </objects>
             <point key="canvasLocation" x="-1399" y="-512"/>
         </scene>
-        <!--Поиск-->
+        <!--Search-->
         <scene sceneID="ODF-PF-hU5">
             <objects>
                 <viewController id="aZC-iE-79H" customClass="RevealViewController" customModule="TopMeal2" customModuleProvider="target" sceneMemberID="viewController">
@@ -377,7 +377,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Поиск" image="cookingpot" id="Hi0-IA-EAx"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="search.1" id="Hi0-IA-EAx"/>
                     <navigationItem key="navigationItem" id="AvA-8g-9I7"/>
                     <connections>
                         <segue destination="TvI-6X-J40" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="KVt-fs-rqA"/>
@@ -388,10 +388,10 @@
             </objects>
             <point key="canvasLocation" x="-118" y="-883"/>
         </scene>
-        <!--Feed View Controller-->
+        <!--Feed-->
         <scene sceneID="Qk5-Qe-clU">
             <objects>
-                <viewController id="LC4-1p-SPL" customClass="FeedViewController" customModule="TopMeal2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="LC4-1p-SPL" customClass="FeedViewController" customModule="TopMeal2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PKm-Mn-rmz"/>
                         <viewControllerLayoutGuide type="bottom" id="rMl-9Z-BXy"/>
@@ -400,14 +400,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="393" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="G8D-Gn-9gb">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="513" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="G8D-Gn-9gb">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="feedCell" rowHeight="396" id="rP1-Cb-2Rm" customClass="FeedTableViewCell" customModule="TopMeal2" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="65" width="375" height="396"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="feedCell" rowHeight="513" id="rP1-Cb-2Rm" customClass="FeedTableViewCell" customModule="TopMeal2" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1" width="375" height="513"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rP1-Cb-2Rm" id="2P4-PV-4td">
-                                            <frame key="frameInset" width="375" height="395"/>
+                                            <frame key="frameInset" width="375" height="512"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sevaProfilePicture" translatesAutoresizingMaskIntoConstraints="NO" id="LHb-8n-ZkV">
@@ -415,32 +415,27 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="40"/>
+                                                            <integer key="value" value="10"/>
                                                         </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V0A-Zz-ole">
-                                                    <frame key="frameInset" minY="85" width="375" height="1"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.61176470589999998" green="0.68627450980000004" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Сева Рыбаков" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P07-2w-RJi">
-                                                    <frame key="frameInset" minX="76" minY="8" width="119" height="21"/>
+                                                    <frame key="frameInset" minX="76" minY="9" width="125" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="приготовил" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdh-2d-bXU">
-                                                    <frame key="frameInset" minX="203" minY="8" width="104" height="21"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jgI-3m-IZ6">
+                                                    <frame key="frameInset" minX="6" minY="76" width="363" height="363"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jgI-3m-IZ6">
-                                                    <frame key="frameInset" minX="8" minY="94" width="359" height="197"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U3N-kJ-ddS">
                                                     <frame key="frameInset" minX="76" minY="37" width="199" height="30"/>
@@ -456,9 +451,39 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0J-DQ-MCY">
+                                                    <frame key="frameInset" minX="22" minY="474" width="32" height="28"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="like_notactive"/>
+                                                    <state key="selected" image="like_active"/>
+                                                    <connections>
+                                                        <action selector="likeButtonPressed:" destination="LC4-1p-SPL" eventType="touchUpInside" id="aym-CR-wz8"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Z4-CR-O1l">
+                                                    <frame key="frameInset" minX="73" minY="471" width="31" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="comment"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="приготовил" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neb-KB-CyQ">
+                                                    <frame key="frameInset" minX="204" minY="8" width="103" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100 likes, 300 comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABP-EL-5ry">
+                                                    <frame key="frameInset" minX="22" minY="445" width="153" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="likeButton" destination="V0J-DQ-MCY" id="7pP-Qo-eSr"/>
+                                            <outlet property="likesLabel" destination="ABP-EL-5ry" id="guM-TK-6tT"/>
                                             <outlet property="photoImageView" destination="jgI-3m-IZ6" id="Xmv-f0-NZy"/>
                                             <outlet property="posterNameLabel" destination="P07-2w-RJi" id="lhY-66-sF2"/>
                                             <outlet property="profilePicImageView" destination="LHb-8n-ZkV" id="LVY-oT-jqW"/>
@@ -480,7 +505,14 @@
                             <constraint firstItem="rMl-9Z-BXy" firstAttribute="top" secondItem="G8D-Gn-9gb" secondAttribute="bottom" id="bJC-jN-6eG"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="xzY-Ke-Y4u"/>
+                    <navigationItem key="navigationItem" title="Feed" id="xzY-Ke-Y4u">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="6xH-tB-hRO">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="refreshButtonPressed:" destination="LC4-1p-SPL" id="LM4-dt-8uR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="G8D-Gn-9gb" id="jRD-yN-Dob"/>
                     </connections>
@@ -489,7 +521,7 @@
             </objects>
             <point key="canvasLocation" x="184.80000000000001" y="68.815592203898049"/>
         </scene>
-        <!--Search Collection View Controller-->
+        <!--Search-->
         <scene sceneID="vNb-14-ygo">
             <objects>
                 <collectionViewController id="Uyr-ox-Pe7" customClass="SearchCollectionViewController" customModule="TopMeal2" customModuleProvider="target" sceneMemberID="viewController">
@@ -677,7 +709,7 @@
                             <outlet property="delegate" destination="Uyr-ox-Pe7" id="xyD-W6-y0U"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="Ux8-3K-tVM">
+                    <navigationItem key="navigationItem" title="Search" id="Ux8-3K-tVM">
                         <barButtonItem key="rightBarButtonItem" systemItem="organize" id="dn5-Ta-cw7">
                             <connections>
                                 <action selector="revealIngredientsChoicesButton:" destination="Uyr-ox-Pe7" id="vPQ-16-jjP"/>
@@ -1134,11 +1166,11 @@
             </objects>
             <point key="canvasLocation" x="824.79999999999995" y="757.87106446776613"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Feed-->
         <scene sceneID="l2O-GJ-wj7">
             <objects>
                 <navigationController id="hxy-7C-XpE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" selectedImage="cookingpot" systemItem="favorites" id="acj-tK-ZJe"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="Feed Tab Bar" selectedImage="Feed Tab Bar" id="acj-tK-ZJe"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="DGD-ch-dc2" customClass="PrettyNavigationBar" customModule="TopMeal2" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1155,16 +1187,20 @@
     <resources>
         <image name="Body" width="96" height="147"/>
         <image name="Checked-80" width="80" height="80"/>
+        <image name="Feed Tab Bar" width="28" height="26"/>
         <image name="Left Arm" width="27" height="93"/>
         <image name="Right Arm" width="24" height="93"/>
         <image name="Taco-96" width="96" height="96"/>
         <image name="background" width="414" height="736"/>
         <image name="clock.1" width="13" height="13"/>
-        <image name="cookingpot" width="50" height="50"/>
+        <image name="comment" width="100" height="100"/>
         <image name="facebook" width="60" height="60"/>
         <image name="imageFrame" width="107" height="107"/>
+        <image name="like_active" width="60" height="53"/>
+        <image name="like_notactive" width="61" height="55"/>
         <image name="load bar" width="101" height="80"/>
         <image name="meat" width="266" height="400"/>
+        <image name="search.1" width="20" height="20"/>
         <image name="sevaProfilePicture" width="575" height="573"/>
         <image name="twitter color" width="60" height="60"/>
         <image name="vegetables" width="515" height="631"/>

@@ -106,6 +106,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true
+        picker.sourceType = source
         self.present(picker, animated: true, completion: nil)
 
     }

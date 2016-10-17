@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Alamofire
+
 
 
 class FeedPost{
@@ -32,15 +34,57 @@ class FeedPost{
     }
 
 
+    var numLikes: Int
+    var liked: Bool
+
+
+
+    
+    init(dict: Dictionary<String,AnyObject>){
+        
+        print(dict)
+        _recipe = Recipe( (dict["recipeName"] as? String)!, (dict["recipeID"] as? Int)! )
+        _id = Int((dict["id"] as? Int)!)
+        _time = NSDate(timeIntervalSince1970: (dict["recipeID"] as? Double)!)
+        _user = User(uid: dict["userID"] as! String, name: dict["name"] as! String)
+        if dict["isLiked"] as! String == "true" {
+            liked = true
+        } else {
+            liked = false
+        }
+        if let likes = dict["numLikes"] as? Int {
+            self.numLikes = likes
+        }
+        else {
+            self.numLikes = 0
+        }
+        
+    }
+    
+    
     func postImageURLString() -> String {
         return "http://topmeal-142219.appspot.com/get_image?type=post&id=" + String(_id)
     }
     
-    init(dict: Dictionary<String,AnyObject>){
+    
+    func like(idToken: String , completed: @escaping (ServerRequestResponse) -> Void ) {
         
-        _recipe = Recipe( (dict["recipeName"] as? String)!, (dict["recipeID"] as? Int)! )
-        _id = Int((dict["id"] as? Int)!)
-        _time = NSDate(timeIntervalSince1970: (dict["recipeID"] as? Double)!)
-        _user = User(uid: dict["userID"] as! String)
+        let headers = ["Authorization": "Bearer " + idToken,] //pass token in the header
+        let URLString = "http://topmeal-142219.appspot.com/like_post?post="+String(_id) //request sting
+        
+        Alamofire.request(URLString,headers: headers).responseJSON{ response in
+            let status = RequestHelper.checkResponse(responseJSON: response)
+            switch status {
+                case .success:
+                    self.liked = self.liked ? false : true
+                    completed(status)
+                    return
+                default:
+                    completed(status) //There was an error, do something in VC about it (put out a message)
+                    return
+            }
+        }
     }
+    
+        
 }
