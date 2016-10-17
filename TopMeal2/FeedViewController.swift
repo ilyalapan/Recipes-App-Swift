@@ -80,21 +80,20 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func likeButtonPressed(_ sender: AnyObject) {
         if let button = sender as? UIButton {
             if let cell = button.superview?.superview as? FeedTableViewCell { //superview twice to get cell beacuse first is a content view
-                let indexPath = self.tableView.indexPath(for: cell) //get index path of the cell
-                let post = self.feed.posts[(indexPath?.row)!]
-                cell.setCellLikedStateTo(newLikedState: !post.liked)//change the state of the button immediatly(responsive interface)
+                cell.switchCellLikedState()//change the state of the button immediatly(responsive interface)
                 let currentUser = FIRAuth.auth()?.currentUser
-                currentUser?.getTokenForcingRefresh(true) {idToken, error in
+                currentUser?.getTokenForcingRefresh(true) { idToken, error in
+                    
+                    let indexPath = self.tableView.indexPath(for: cell) //get index path of the cell
+                    let post = self.feed.posts[(indexPath?.row)!]
+                    
                     if let error = error {
                         cell.setCellLikedStateTo(newLikedState: post.liked) //operation failed, return to the initial button state and handle the error
                         //TODO: output an error message
                         return
                     }
-                    post.like(idToken: idToken!) {result in
-                        if result == ServerRequestResponse.success  {
-                            post.liked = !post.liked
-                        }
-                        else {
+                    post.like(idToken: idToken!) { result in
+                        if result != ServerRequestResponse.success{
                             cell.setCellLikedStateTo(newLikedState: post.liked) //operation failed, return to the initial buttons state
                         }
                     }
