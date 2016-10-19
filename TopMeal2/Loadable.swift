@@ -11,7 +11,7 @@ import Alamofire
 
 protocol Loadable {
     
-    func load(idToken: String, completed: @escaping (String) -> Void )
+    func load(idToken: String, completed: @escaping (ServerRequestResponse) -> Void )
     func getURLFetchString() -> String
     func loadArray(array: [Dictionary<String,AnyObject>] )
     

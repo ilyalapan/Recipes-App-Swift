@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 
-class FeedObject {
+class FeedObject: Loadable {
     var posts: [FeedPost] = []
     
     func loadArray(array: Array<Dictionary<String, AnyObject>> ){
@@ -20,11 +20,15 @@ class FeedObject {
         }
     }
     
+    func getURLFetchString() -> String {
+        return "http://topmeal-142219.appspot.com/get_feed?start=0"
+    }
     
     
+    /* Should be replaced by protocol
     func refreshPosts(idToken: String, completed: @escaping (String) -> Void )  {
         let headers = ["Authorization": "Bearer " + idToken,]
-        let URLString = "http://topmeal-142219.appspot.com/get_feed?user_id=4WM4TNtJa1UIkeZdP9Y41Wa1Jqi2&start=0"
+        let URLString = "http://topmeal-142219.appspot.com/get_feed?start=0"
         
         Alamofire.request(URLString, headers: headers).responseJSON{ response in
             
@@ -45,7 +49,7 @@ class FeedObject {
             }
             completed("Unknown Error") //Did not catch error
         }
-    }
+    }*/
 
     
     func loadNextPosts(idToken: String,completed: @escaping (String) -> Void )  {

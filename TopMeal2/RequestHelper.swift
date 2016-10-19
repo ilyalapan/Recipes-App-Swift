@@ -75,23 +75,24 @@ class RequestHelper { //TODO: possibly make this an extension of Alamofire
     ///
     /// - throws: see ServerResponseError
     static func checkStatus(responseDict: Dictionary<String, AnyObject> ) throws  {
-        
-        if let status = ServerRequestResponse(rawValue: responseDict["status"]! as! String) {
-            switch status {
-            case ServerRequestResponse.Success:
-                return
-            case ServerRequestResponse.Unathorised:
-                print("User is no authorised")
-                throw ServerResponseError.Unathorised
-            case ServerRequestResponse.BadRequest:
-                print("You made a bad request to the server")
-                throw ServerResponseError.BadRequest
-            case ServerRequestResponse.Failed:
-                print("Back-end failed the operation for a known reason")
-                throw ServerResponseError.Failed
-            default:
-                print("Unknown error")
-                throw ServerResponseError.Unknown
+        if let rawValue = responseDict["status"] {
+            if let status = ServerRequestResponse(rawValue: rawValue as! String) {
+                switch status {
+                case ServerRequestResponse.Success:
+                    return
+                case ServerRequestResponse.Unathorised:
+                    print("User is no authorised")
+                    throw ServerResponseError.Unathorised
+                case ServerRequestResponse.BadRequest:
+                    print("You made a bad request to the server")
+                    throw ServerResponseError.BadRequest
+                case ServerRequestResponse.Failed:
+                    print("Back-end failed the operation for a known reason")
+                    throw ServerResponseError.Failed
+                default:
+                    print("Unknown error")
+                    throw ServerResponseError.Unknown
+                }
             }
         }
         print("You didn't include reponse status in the backend implementation")

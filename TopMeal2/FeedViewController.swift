@@ -18,13 +18,17 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var feed : FeedObject = FeedObject()
     
+    var refreshControl: UIRefreshControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.feed.loadNextPosts(completed: {result in
-        //    self.tableView.reloadData() TODO: Proper refreshing of posts
-        //})
-        
+
         // Do any additional setup after loading the view.
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged) 
+        self.tableView.addSubview(refreshControl)
+
     }
     
     
@@ -36,7 +40,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 // Handle error
                 return
             }
-            self.feed.refreshPosts(idToken: idToken!,completed: {result in
+            self.feed.load(idToken: idToken!,completed: {result in
                 self.tableView.reloadData()
             })
         }
@@ -104,20 +108,22 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     @IBAction func refreshButtonPressed(_ sender: AnyObject) {
+        self.refresh()
+    }
+    
+    func refresh() {
         let currentUser = FIRAuth.auth()?.currentUser
         currentUser?.getTokenForcingRefresh(true) {idToken, error in
             if let error = error {
                 // Handle error
                 return
             }
-            self.feed.refreshPosts(idToken: idToken!,completed: {result in
+            self.feed.load(idToken: idToken!,completed: {result in
+                self.refreshControl.endRefreshing()
                 self.tableView.reloadData()
             })
         }
-        
     }
-    
-    
     /*
     // MARK: - Navigation
 
