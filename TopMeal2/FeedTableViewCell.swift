@@ -56,23 +56,16 @@ class FeedTableViewCell: UITableViewCell {
     }
     
     
-    func setCellLikedStateTo(newLikedState: Bool) -> Void {
-        if(newLikedState) {
-            if(!self._liked) {
-                self.likeButton.isSelected = true
-                _numLikes += 1
-                self.likesLabel.text = String(_numLikes) + " likes"
-                self._liked = true
-            }
-        } else {
-            if(self._liked) {
-                self.likeButton.isSelected = false
-                _numLikes -= 1
-                self.likesLabel.text = String(_numLikes) + " likes"
-                self._liked = false
-            }
-        }
+    func configureCellLikes(post: FeedPost)
+    {
+        self._liked = post.liked
+        self.likeButton.isSelected = self._liked
+        
+        self._numLikes = post.numLikes
+        self.likesLabel.text = String(self._numLikes) + " likes"
+        
     }
+    
     
     func switchCellLikedState() -> Void {
         if(!self._liked) {

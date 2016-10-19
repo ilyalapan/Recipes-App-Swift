@@ -69,19 +69,31 @@ class FeedPost{
     
     func like(idToken: String , completed: @escaping (ServerRequestResponse) -> Void ) {
         
+        let tmp_liked = liked
+        let tmp_numLikes = numLikes
+        
+        if self.liked {
+            self.liked = false
+            self.numLikes -= 1
+        } else {
+            self.liked = true
+            self.numLikes += 1
+        }
+        
         let headers = ["Authorization": "Bearer " + idToken,] //pass token in the header
         let URLString = "http://topmeal-142219.appspot.com/like_post?post="+String(_id) //request sting
         
         Alamofire.request(URLString,headers: headers).responseJSON{ response in
-            let status = RequestHelper.checkResponse(responseJSON: response)
-            switch status {
-                case .success:
-                    self.liked = self.liked ? false : true
-                    completed(status)
-                    return
-                default:
-                    completed(status) //There was an error, do something in VC about it (put out a message)
-                    return
+            do{
+                try RequestHelper.checkStatus(responseJSON: response)
+                completed(ServerRequestResponse.Success)
+                return
+            }
+            catch {
+                self.liked = tmp_liked
+                self.numLikes = tmp_numLikes
+                completed(ServerRequestResponse.Failed)
+                return
             }
         }
     }

@@ -34,3 +34,4 @@ class User {
         return "http://topmeal-142219.appspot.com/get_image?type=profile&id=" + String(_uid)
     }
 }
+

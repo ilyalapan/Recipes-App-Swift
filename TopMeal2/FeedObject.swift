@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 
+
 class FeedObject {
     var posts: [FeedPost] = []
     
@@ -18,6 +19,8 @@ class FeedObject {
             self.posts.append(post)
         }
     }
+    
+    
     
     func refreshPosts(idToken: String, completed: @escaping (String) -> Void )  {
         let headers = ["Authorization": "Bearer " + idToken,]
@@ -35,7 +38,7 @@ class FeedObject {
                     if let postsArray = dict["posts"] as? [Dictionary<String,AnyObject>] {
                         self.posts = []
                         self.loadArray(array: postsArray)
-                        completed("Success") //All is good, return
+                        completed("Success") //All is good, return //TODO: Use ServerRequestResponse  return
                         return
                     }
                 }
@@ -50,10 +53,6 @@ class FeedObject {
         let URLString = "http://topmeal-142219.appspot.com/get_feed?user_id=4WM4TNtJa1UIkeZdP9Y41Wa1Jqi2&start=0"
         
         Alamofire.request(URLString,headers: headers).responseJSON{ response in
-            print(response.request) //DEBUG // original URL request
-            print(response.response)//DEBUG // HTTP URL response
-            print(response.data)  //DEBUG   // server data
-            print(response.result) //DEBUG  // result of response serialization
             
             if let JSON = response.result.value {
                 if let dict =  JSON as? Dictionary<String, AnyObject>{
