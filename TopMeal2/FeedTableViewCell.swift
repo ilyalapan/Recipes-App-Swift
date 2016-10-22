@@ -40,11 +40,9 @@ class FeedTableViewCell: UITableViewCell {
         
         self.posterNameLabel.text = post.user.name
         
-        let URLphoto = NSURL(string: post.postImageURLString())
-        self.photoImageView.sd_setImage(with: URLphoto?.absoluteURL)
+        self.photoImageView.sd_setImage(string: post.postImageURLString() )
         
-        let URLprofile = NSURL(string: post.user.profileImageURLString())
-        self.profilePicImageView.sd_setImage(with: URLprofile?.absoluteURL)
+        self.profilePicImageView.sd_setImage(string: post.user.profileImageURLString() )
         
         self._liked = post.liked
         self.likeButton.isSelected = self._liked

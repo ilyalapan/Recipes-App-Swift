@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7701FFE21DBAB8190012EE2B /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7701FFE11DBAB8190012EE2B /* DiscoverViewController.swift */; };
+		7701FFE41DBABCFC0012EE2B /* DiscoverFeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7701FFE31DBABCFC0012EE2B /* DiscoverFeedManager.swift */; };
+		7701FFE61DBABDEF0012EE2B /* DiscoverCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7701FFE51DBABDEF0012EE2B /* DiscoverCollectionViewCell.swift */; };
+		7701FFEB1DBAC88A0012EE2B /* UIImageView + Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7701FFEA1DBAC88A0012EE2B /* UIImageView + Helper.swift */; };
+		7701FFED1DBAD6F10012EE2B /* DiscoverSearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7701FFEC1DBAD6F10012EE2B /* DiscoverSearchResultCell.xib */; };
+		7701FFEF1DBAE9110012EE2B /* DiscoverSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7701FFEE1DBAE9110012EE2B /* DiscoverSearchResultCell.swift */; };
+		7701FFF11DBAE9FF0012EE2B /* DiscoverSearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7701FFF01DBAE9FF0012EE2B /* DiscoverSearchResultsController.swift */; };
+		7701FFF31DBAEC450012EE2B /* SearchResultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7701FFF21DBAEC450012EE2B /* SearchResultsManager.swift */; };
 		772FB0231DA0756400E0399C /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772FB0221DA0756400E0399C /* RegistrationViewController.swift */; };
 		772FB0251DA08AD900E0399C /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772FB0241DA08AD900E0399C /* SettingsTableViewController.swift */; };
 		7736DA511D91AF8300AE4792 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736DA501D91AF8300AE4792 /* SearchResultTableViewCell.swift */; };
@@ -22,6 +30,7 @@
 		775EF9591DAFB7F8005FA117 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775EF9581DAFB7F8005FA117 /* PostViewController.swift */; };
 		775EF95B1DB0C613005FA117 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775EF95A1DB0C613005FA117 /* User.swift */; };
 		7764FD781D9DC56A00FA6C7D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7764FD771D9DC56A00FA6C7D /* LogInViewController.swift */; };
+		776858D71DBA9F820077128B /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776858D61DBA9F820077128B /* Pagination.swift */; };
 		777A7EA51DB44A6700825467 /* RequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777A7EA41DB44A6700825467 /* RequestHelper.swift */; };
 		77839E731D8AD4CD0088B070 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77839E721D8AD4CD0088B070 /* AppDelegate.swift */; };
 		77839E781D8AD4CD0088B070 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77839E761D8AD4CD0088B070 /* Main.storyboard */; };
@@ -38,6 +47,7 @@
 		77839EAA1D8BFE750088B070 /* IngredientsDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77839EA91D8BFE750088B070 /* IngredientsDetailTableViewController.swift */; };
 		77839EB01D8C47430088B070 /* SearchCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77839EAF1D8C47430088B070 /* SearchCollectionReusableView.swift */; };
 		7792A1451DB7F433007119F2 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7792A1441DB7F433007119F2 /* Loadable.swift */; };
+		7792A1481DB81F9E007119F2 /* TMCustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7792A1471DB81F9E007119F2 /* TMCustomTabBar.swift */; };
 		7794705A1D9A65850059ECF0 /* RevealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779470591D9A65850059ECF0 /* RevealViewController.swift */; };
 		7794705C1D9A9B530059ECF0 /* RecipeTypeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794705B1D9A9B530059ECF0 /* RecipeTypeCollectionViewController.swift */; };
 		7794705E1D9A9B8B0059ECF0 /* TypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794705D1D9A9B8B0059ECF0 /* TypeCollectionViewCell.swift */; };
@@ -49,6 +59,14 @@
 
 /* Begin PBXFileReference section */
 		0D59B9402575A0B92E644B6F /* Pods-TopMeal2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TopMeal2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TopMeal2/Pods-TopMeal2.debug.xcconfig"; sourceTree = "<group>"; };
+		7701FFE11DBAB8190012EE2B /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		7701FFE31DBABCFC0012EE2B /* DiscoverFeedManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverFeedManager.swift; sourceTree = "<group>"; };
+		7701FFE51DBABDEF0012EE2B /* DiscoverCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverCollectionViewCell.swift; sourceTree = "<group>"; };
+		7701FFEA1DBAC88A0012EE2B /* UIImageView + Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView + Helper.swift"; sourceTree = "<group>"; };
+		7701FFEC1DBAD6F10012EE2B /* DiscoverSearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscoverSearchResultCell.xib; sourceTree = "<group>"; };
+		7701FFEE1DBAE9110012EE2B /* DiscoverSearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverSearchResultCell.swift; sourceTree = "<group>"; };
+		7701FFF01DBAE9FF0012EE2B /* DiscoverSearchResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverSearchResultsController.swift; sourceTree = "<group>"; };
+		7701FFF21DBAEC450012EE2B /* SearchResultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsManager.swift; sourceTree = "<group>"; };
 		772FB0221DA0756400E0399C /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		772FB0241DA08AD900E0399C /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		7736DA501D91AF8300AE4792 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
@@ -65,6 +83,7 @@
 		775EF95A1DB0C613005FA117 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7764FD771D9DC56A00FA6C7D /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		7764FD791D9E864E00FA6C7D /* TopMeal2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TopMeal2.entitlements; sourceTree = "<group>"; };
+		776858D61DBA9F820077128B /* Pagination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 		777A7EA41DB44A6700825467 /* RequestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestHelper.swift; sourceTree = "<group>"; };
 		77839E6F1D8AD4CD0088B070 /* TopMeal2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopMeal2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77839E721D8AD4CD0088B070 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +104,7 @@
 		77839EA91D8BFE750088B070 /* IngredientsDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsDetailTableViewController.swift; sourceTree = "<group>"; };
 		77839EAF1D8C47430088B070 /* SearchCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCollectionReusableView.swift; sourceTree = "<group>"; };
 		7792A1441DB7F433007119F2 /* Loadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
+		7792A1471DB81F9E007119F2 /* TMCustomTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMCustomTabBar.swift; sourceTree = "<group>"; };
 		779470591D9A65850059ECF0 /* RevealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevealViewController.swift; sourceTree = "<group>"; };
 		7794705B1D9A9B530059ECF0 /* RecipeTypeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeTypeCollectionViewController.swift; sourceTree = "<group>"; };
 		7794705D1D9A9B8B0059ECF0 /* TypeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -122,6 +142,37 @@
 				CCC5641744CAC0DAC7B99648 /* Pods_TopMeal2.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7701FFE01DBAB49E0012EE2B /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				7701FFF41DBAEC8A0012EE2B /* Search */,
+				7701FFE11DBAB8190012EE2B /* DiscoverViewController.swift */,
+				7701FFE51DBABDEF0012EE2B /* DiscoverCollectionViewCell.swift */,
+				7701FFE31DBABCFC0012EE2B /* DiscoverFeedManager.swift */,
+			);
+			name = Discover;
+			sourceTree = "<group>";
+		};
+		7701FFE91DBAC8530012EE2B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				775EF93B1DA7AE42005FA117 /* UIColor+CustomColor.swift */,
+				7701FFEA1DBAC88A0012EE2B /* UIImageView + Helper.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		7701FFF41DBAEC8A0012EE2B /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				7701FFEC1DBAD6F10012EE2B /* DiscoverSearchResultCell.xib */,
+				7701FFF21DBAEC450012EE2B /* SearchResultsManager.swift */,
+				7701FFEE1DBAE9110012EE2B /* DiscoverSearchResultCell.swift */,
+				7701FFF01DBAE9FF0012EE2B /* DiscoverSearchResultsController.swift */,
+			);
+			name = Search;
 			sourceTree = "<group>";
 		};
 		7736DA4F1D91AD9500AE4792 /* Search Results */ = {
@@ -249,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				7792A1461DB7F6BE007119F2 /* Protocols */,
+				7701FFE91DBAC8530012EE2B /* Extensions */,
 				77839E981D8B4A3D0088B070 /* SWRevealViewController */,
 				775EF9411DA90FF8005FA117 /* Model */,
 				775EF9421DA90FFD005FA117 /* View */,
@@ -257,13 +309,14 @@
 				7736DA4F1D91AD9500AE4792 /* Search Results */,
 				775EF93D1DA90FB4005FA117 /* Login And Registration */,
 				775EF9491DAA948E005FA117 /* Feed */,
+				7701FFE01DBAB49E0012EE2B /* Discover */,
 				77839E721D8AD4CD0088B070 /* AppDelegate.swift */,
+				777A7EA41DB44A6700825467 /* RequestHelper.swift */,
 				775EF95A1DB0C613005FA117 /* User.swift */,
-				775EF93B1DA7AE42005FA117 /* UIColor+CustomColor.swift */,
 				772FB0241DA08AD900E0399C /* SettingsTableViewController.swift */,
 				77839E761D8AD4CD0088B070 /* Main.storyboard */,
+				7792A1471DB81F9E007119F2 /* TMCustomTabBar.swift */,
 				775EF9501DAEA6D5005FA117 /* DataService.swift */,
-				777A7EA41DB44A6700825467 /* RequestHelper.swift */,
 				77839E7B1D8AD4CD0088B070 /* LaunchScreen.storyboard */,
 				77839E7E1D8AD4CD0088B070 /* Info.plist */,
 				775EF94E1DAABA1D005FA117 /* GoogleService-Info.plist */,
@@ -338,6 +391,7 @@
 			isa = PBXGroup;
 			children = (
 				7792A1441DB7F433007119F2 /* Loadable.swift */,
+				776858D61DBA9F820077128B /* Pagination.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -413,6 +467,7 @@
 			files = (
 				77AE5A4D1DA6C6990015B43E /* bebas_neue in Resources */,
 				77839E7D1D8AD4CD0088B070 /* LaunchScreen.storyboard in Resources */,
+				7701FFED1DBAD6F10012EE2B /* DiscoverSearchResultCell.xib in Resources */,
 				77839E8D1D8AFC2E0088B070 /* RobotoTTF in Resources */,
 				77B3407B1D9C32B600501EDF /* Assets.xcassets in Resources */,
 				77839E781D8AD4CD0088B070 /* Main.storyboard in Resources */,
@@ -475,17 +530,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7701FFF31DBAEC450012EE2B /* SearchResultsManager.swift in Sources */,
 				775EF94D1DAAB6DA005FA117 /* FeedViewController.swift in Sources */,
 				77839E851D8AD50E0088B070 /* SearchCollectionViewController.swift in Sources */,
 				77839E8B1D8AEF1F0088B070 /* IngridientsChoice.swift in Sources */,
+				7701FFE41DBABCFC0012EE2B /* DiscoverFeedManager.swift in Sources */,
 				77AE5A4B1DA658090015B43E /* PrettyNavigationBar.swift in Sources */,
 				775EF9531DAEDD7A005FA117 /* FeedTableViewCell.swift in Sources */,
 				772FB0231DA0756400E0399C /* RegistrationViewController.swift in Sources */,
 				7764FD781D9DC56A00FA6C7D /* LogInViewController.swift in Sources */,
 				77839E731D8AD4CD0088B070 /* AppDelegate.swift in Sources */,
+				7701FFEF1DBAE9110012EE2B /* DiscoverSearchResultCell.swift in Sources */,
 				775EF95B1DB0C613005FA117 /* User.swift in Sources */,
 				775EF9571DAEE5BB005FA117 /* FeedObject.swift in Sources */,
 				77839EAA1D8BFE750088B070 /* IngredientsDetailTableViewController.swift in Sources */,
+				7701FFE21DBAB8190012EE2B /* DiscoverViewController.swift in Sources */,
 				77839E871D8AD5700088B070 /* SearchCollectionViewCell.swift in Sources */,
 				77839EA41D8BEFE30088B070 /* RecipeSearch.swift in Sources */,
 				7736DA531D91B8EE00AE4792 /* SearchResultTableViewController.swift in Sources */,
@@ -497,14 +556,19 @@
 				77839EA21D8B56550088B070 /* IngridientsChoiceTableViewController.swift in Sources */,
 				775EF9511DAEA6D5005FA117 /* DataService.swift in Sources */,
 				7794705E1D9A9B8B0059ECF0 /* TypeCollectionViewCell.swift in Sources */,
+				7701FFEB1DBAC88A0012EE2B /* UIImageView + Helper.swift in Sources */,
 				77839EB01D8C47430088B070 /* SearchCollectionReusableView.swift in Sources */,
+				7792A1481DB81F9E007119F2 /* TMCustomTabBar.swift in Sources */,
 				775EF9551DAEDD8E005FA117 /* FeedPost.swift in Sources */,
 				77839EA81D8BF3500088B070 /* RecipeSearchResult.swift in Sources */,
+				7701FFF11DBAE9FF0012EE2B /* DiscoverSearchResultsController.swift in Sources */,
 				772FB0251DA08AD900E0399C /* SettingsTableViewController.swift in Sources */,
 				775EF93C1DA7AE43005FA117 /* UIColor+CustomColor.swift in Sources */,
+				7701FFE61DBABDEF0012EE2B /* DiscoverCollectionViewCell.swift in Sources */,
 				7736DA571D928FB300AE4792 /* TagButton.swift in Sources */,
 				7792A1451DB7F433007119F2 /* Loadable.swift in Sources */,
 				7736DA511D91AF8300AE4792 /* SearchResultTableViewCell.swift in Sources */,
+				776858D71DBA9F820077128B /* Pagination.swift in Sources */,
 				77839EA61D8BF0D20088B070 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

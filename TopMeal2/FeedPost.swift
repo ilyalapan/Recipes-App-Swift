@@ -10,6 +10,8 @@ import Foundation
 import Alamofire
 
 
+//TODO: this should inherit from Post or just simply renamed to Post as this is not specific to Feed
+
 
 class FeedPost{
     let _recipe: Recipe

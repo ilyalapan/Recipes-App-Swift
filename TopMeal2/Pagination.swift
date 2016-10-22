@@ -1,44 +1,43 @@
 //
-//  Loadable.swift
+//  File.swift
 //  TopMeal2
 //
-//  Created by Ilya Lapan on 19/10/2016.
+//  Created by Ilya Lapan on 21/10/2016.
 //  Copyright © 2016 ilyaseva. All rights reserved.
 //
 
 import Foundation
 import Alamofire
 
-protocol Loadable {
+protocol Pagination {
     
-    func load(idToken: String, completed: @escaping (ServerRequestResponse) -> Void )
-    func getURLFetchString() -> String
-    func loadArray(array: [Dictionary<String,AnyObject>] )
-    
+    func getURLMoreString() -> String
+    func updateArray(array: [Dictionary<String,AnyObject>] )
+    func loadMore(idToken: String, completed: @escaping (ServerRequestResponse) -> Void )
+
 }
 
-extension Loadable {
+extension Pagination {
     
-    func load(idToken: String = "", completed: @escaping (ServerRequestResponse) -> Void )  {
+    func loadMore(idToken: String = "", completed: @escaping (ServerRequestResponse) -> Void )  {
         var headers : Dictionary<String,String> = [:]
         if idToken != "" {
             headers = ["Authorization": "Bearer " + idToken,]
         }
-        let URLString = self.getURLFetchString()
-
+        let URLString = self.getURLMoreString()
+        
         Alamofire.request(URLString, headers: headers).responseJSON{ response in
             
             do {
                 let postsArray = try RequestHelper.checkResponse(responseJSON: response)
-                self.loadArray(array: postsArray)
+                self.updateArray(array: postsArray)
                 completed(ServerRequestResponse.Success)
+            }
+            catch ServerResponseError.Empty {
+                completed(ServerRequestResponse.Empty)
             }
             catch ServerResponseError.Unathorised {
                 completed(ServerRequestResponse.Unathorised)
-            }
-            catch ServerResponseError.Empty {
-                print("Empty")
-                completed(ServerRequestResponse.Empty)
             } //TODO: Cath all the errors or it will crash!
             catch {
                 assert(false, "Did not catch error with the response")

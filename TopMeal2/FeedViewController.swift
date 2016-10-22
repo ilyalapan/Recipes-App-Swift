@@ -62,12 +62,25 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let feedCell = cell as? FeedTableViewCell{
-            print(feed.posts[indexPath.row].recipe.name)
             feedCell.configureCell(post: feed.posts[indexPath.row])
         }
         else
         {
             print("error")
+        }
+        if indexPath.row == feed.posts.count - 1 {
+            let currentUser = FIRAuth.auth()?.currentUser
+            currentUser?.getTokenForcingRefresh(true) {idToken, error in
+                if let error = error {
+                    // Handle error
+                }
+                self.feed.loadMore(idToken: idToken!) {result  in
+                    if (result as? ServerRequestResponse == ServerRequestResponse.Success) {
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+
         }
     }
     
@@ -124,6 +137,12 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             })
         }
     }
+    
+    
+
+    
+    
+    
     /*
     // MARK: - Navigation
 

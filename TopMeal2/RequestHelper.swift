@@ -16,6 +16,7 @@ enum ServerRequestResponse: String {
     case BadResponse = "bad response"
     case Other = "other"
     case Failed = "failed"
+    case Empty = "empty"
     //TODO: expand
 }
 
@@ -26,6 +27,7 @@ enum ServerResponseError : Error {
     case BadResponse
     case Failed
     case Unknown
+    case Empty
     
 }
 
@@ -89,6 +91,9 @@ class RequestHelper { //TODO: possibly make this an extension of Alamofire
                 case ServerRequestResponse.Failed:
                     print("Back-end failed the operation for a known reason")
                     throw ServerResponseError.Failed
+                case ServerRequestResponse.Empty:
+                    print("Back-end failed the operation for a known reason")
+                    throw ServerResponseError.Empty
                 default:
                     print("Unknown error")
                     throw ServerResponseError.Unknown

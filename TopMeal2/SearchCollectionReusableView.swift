@@ -56,7 +56,7 @@ class SearchCollectionReusableView: UICollectionReusableView {
         }
         print(self.parent?.cookingTimeSliderValue)
     }
-    //TODO: Work on interface
+
     
     @IBAction func veganButtonPressed(_ sender: AnyObject) {
         self.parent?.veganButtonPressed(sender: (sender as? TagButton)!)
@@ -66,7 +66,7 @@ class SearchCollectionReusableView: UICollectionReusableView {
         self.parent?.dietButtonPressed(sender: (sender as? TagButton)!)
     }
     
-    @IBAction func noDiaryButtonPressed(_ sender: AnyObject) { //TODO: Fix diary with dairy
+    @IBAction func noDiaryButtonPressed(_ sender: AnyObject) {
         self.parent?.noDairyButtonPressed(sender: (sender as? TagButton)!)
     }
     

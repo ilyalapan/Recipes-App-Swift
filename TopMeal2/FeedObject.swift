@@ -9,21 +9,44 @@
 import Foundation
 import Alamofire
 
-
-class FeedObject: Loadable {
+//TODO: Rename to manager
+class FeedObject: Loadable,Pagination {
+    
     var posts: [FeedPost] = []
     
+    
+    
+    //MARK: Loadable 
+    
+    func getURLFetchString() -> String {
+        return "http://topmeal-142219.appspot.com/get_feed?start=0"
+    }
+
+    
     func loadArray(array: Array<Dictionary<String, AnyObject>> ){
+        self.posts = []
         for postDict in array{
             let post = FeedPost(dict: postDict)
             self.posts.append(post)
         }
     }
     
-    func getURLFetchString() -> String {
-        return "http://topmeal-142219.appspot.com/get_feed?start=0"
+    
+    //MARK: Pagination
+    
+    
+    func updateArray(array: Array<Dictionary<String, AnyObject>> ){
+        for postDict in array{
+            let post = FeedPost(dict: postDict)
+            self.posts.append(post)
+        }
     }
     
+    
+    func getURLMoreString() -> String {
+        return "http://topmeal-142219.appspot.com/get_feed?start=" + String(posts.count)
+    }
+
     
     /* Should be replaced by protocol
     func refreshPosts(idToken: String, completed: @escaping (String) -> Void )  {
@@ -42,7 +65,7 @@ class FeedObject: Loadable {
                     if let postsArray = dict["posts"] as? [Dictionary<String,AnyObject>] {
                         self.posts = []
                         self.loadArray(array: postsArray)
-                        completed("Success") //All is good, return //TODO: Use ServerRequestResponse  return
+                        completed("Success") 
                         return
                     }
                 }
@@ -51,8 +74,8 @@ class FeedObject: Loadable {
         }
     }*/
 
-    
-    func loadNextPosts(idToken: String,completed: @escaping (String) -> Void )  {
+    /*
+    func loadMore(idToken: String,completed: @escaping (String) -> Void )  {
         let headers = ["Authorization": "Bearer " + idToken,]
         let URLString = "http://topmeal-142219.appspot.com/get_feed?user_id=4WM4TNtJa1UIkeZdP9Y41Wa1Jqi2&start=0"
         
@@ -70,6 +93,5 @@ class FeedObject: Loadable {
             completed("Unknown Error") //Did not catch error
         }
     }
-
-    
+    */
 }

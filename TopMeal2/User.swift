@@ -30,6 +30,13 @@ class User {
         self.name = name
     }
     
+    convenience init(dict: [String: AnyObject]) {
+        self.init(uid: dict["userID"] as! String )
+        self.name = dict["name"] as! String
+
+    }
+
+    
     func profileImageURLString()->String {
         return "http://topmeal-142219.appspot.com/get_image?type=profile&id=" + String(_uid)
     }
