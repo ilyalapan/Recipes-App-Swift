@@ -305,8 +305,7 @@
 				775EF9411DA90FF8005FA117 /* Model */,
 				775EF9421DA90FFD005FA117 /* View */,
 				775EF9431DA91001005FA117 /* Controller */,
-				77839EAB1D8BFFC60088B070 /* Search Request */,
-				7736DA4F1D91AD9500AE4792 /* Search Results */,
+				77839EAB1D8BFFC60088B070 /* Search */,
 				775EF93D1DA90FB4005FA117 /* Login And Registration */,
 				775EF9491DAA948E005FA117 /* Feed */,
 				7701FFE01DBAB49E0012EE2B /* Discover */,
@@ -346,20 +345,19 @@
 			name = SWRevealViewController;
 			sourceTree = "<group>";
 		};
-		77839EAB1D8BFFC60088B070 /* Search Request */ = {
+		77839EAB1D8BFFC60088B070 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				77839EAC1D8C00180088B070 /* Model */,
-				77839EAD1D8C001E0088B070 /* View */,
-				77839EAE1D8C002A0088B070 /* Controller */,
+				778E9C4F1DBD38D600A73B1D /* Search Request */,
+				7736DA4F1D91AD9500AE4792 /* Search Results */,
+				77839EA31D8BEFE30088B070 /* RecipeSearch.swift */,
 			);
-			name = "Search Request";
+			name = Search;
 			sourceTree = "<group>";
 		};
 		77839EAC1D8C00180088B070 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				77839EA31D8BEFE30088B070 /* RecipeSearch.swift */,
 				77839E8A1D8AEF1F0088B070 /* IngridientsChoice.swift */,
 			);
 			name = Model;
@@ -385,6 +383,16 @@
 				77839EA11D8B56550088B070 /* IngridientsChoiceTableViewController.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		778E9C4F1DBD38D600A73B1D /* Search Request */ = {
+			isa = PBXGroup;
+			children = (
+				77839EAE1D8C002A0088B070 /* Controller */,
+				77839EAD1D8C001E0088B070 /* View */,
+				77839EAC1D8C00180088B070 /* Model */,
+			);
+			name = "Search Request";
 			sourceTree = "<group>";
 		};
 		7792A1461DB7F6BE007119F2 /* Protocols */ = {

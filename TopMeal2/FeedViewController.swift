@@ -124,6 +124,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.refresh()
     }
     
+    
+    
     func refresh() {
         let currentUser = FIRAuth.auth()?.currentUser
         currentUser?.getTokenForcingRefresh(true) {idToken, error in
@@ -134,6 +136,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.feed.load(idToken: idToken!,completed: {result in
                 self.refreshControl.endRefreshing()
                 self.tableView.reloadData()
+                self.tableView.setContentOffset( CGPoint(x: 0, y: 0) , animated: true)
             })
         }
     }
