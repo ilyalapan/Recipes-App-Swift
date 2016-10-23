@@ -89,7 +89,7 @@ class LogInViewController: UIViewController {
     func keyboardWillShow(notification: NSNotification){
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue{
             if self.view.frame.origin.y == 0 {
-                self.view.frame.origin.y -= keyboardSize.height //TODO: adjust for button
+                self.view.frame.origin.y -= keyboardSize.height
             }
         }
             
@@ -111,7 +111,7 @@ class LogInViewController: UIViewController {
     }
     
     @IBAction func facebookLogInButton(_ sender: AnyObject) {
-        
+        print("trying facebook Log in")
         let facebookLogin = FBSDKLoginManager()
         facebookLogin.logOut()
         facebookLogin.logIn(withReadPermissions: ["email"], from: self){(result, error) in
@@ -123,19 +123,31 @@ class LogInViewController: UIViewController {
             else {
                 let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
                 self.firebaseAuth(credential)
-                
-                UIApplication.shared.delegate?.window??.rootViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController() //TODO: Figure out why I have two ?? here
             }
         }
         
     }
     
     func firebaseAuth(_ credential: FIRAuthCredential){
+        var newUser = false
+        FIRAuth.auth()?.currentUser?.reauthenticate(with: credential, completion:{  error in
+            if error != nil {
+                newUser = true // User does not exist
+            }
+        })
+        
         FIRAuth.auth()?.signIn(with: credential, completion: { (user, error) in
             if error != nil {
                 print("Unable to authenticate with Firebase \(error)")
             } else {
+                let userData = ["provider" : credential.provider]
+                DataService.ds.createFirebaseDBUser(uid: (user?.uid)!, userData: userData)
                 print("Succesfully authenticated with Firebase")
+                if newUser {
+                    print("New User, Segue in to registration details pages")//TODO: Segue in to registration details pages
+                } else {
+                    UIApplication.shared.delegate?.window??.rootViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController() //Existing user, go to main stuff now
+                }
             }
         })
     }

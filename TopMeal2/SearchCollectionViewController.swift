@@ -362,6 +362,18 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
             self.searchObject.noGluten = false
         }
     }
+    
+    
+    func noHoneyButtonPressed(sender: TagButton){
+        if !sender.active {
+            sender.active = true
+            self.searchObject.noHoney = true
+        }
+        else {
+            sender.active = false
+            self.searchObject.noHoney = false
+        }
+    }
 
     
     
