@@ -10,14 +10,23 @@ import UIKit
 import Firebase
 
 
-class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
+class DiscoverViewController: TMFeedCollectionController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    @IBOutlet weak var collectionView: UICollectionView!
 
+    
     @IBOutlet weak var navigationItemSearchBar: UINavigationItem!
-
     
-    var feed: DiscoverFeedManager = DiscoverFeedManager()
+    var dicoverFeed: DiscoverFeedManager = DiscoverFeedManager()
+    
+    override var feed: (Loadable & Pagination)?{
+        get {
+            return dicoverFeed
+        }
+        set {
+            self.dicoverFeed = (newValue as? DiscoverFeedManager)!
+        }
+    }
+    
     let reuseIdentifier: String = "discoverCell"
     var searchController: UISearchController?
     
@@ -25,9 +34,9 @@ class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICo
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //set up search controller
         let resultsController = DiscoverSearchResultsController()
         self.searchController = UISearchController(searchResultsController: resultsController)
-        
         self.searchController?.hidesNavigationBarDuringPresentation = false
         self.navigationItemSearchBar.titleView = searchController?.searchBar
         self.navigationController?.hidesBarsOnSwipe = true
@@ -45,7 +54,7 @@ class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICo
                 // Handle error
                 return
             }
-            self.feed.load(idToken: idToken!,completed: {result in
+            self.dicoverFeed.load(idToken: idToken!,completed: {result in
                 self.collectionView.reloadData()
             })
         }
@@ -63,14 +72,15 @@ class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICo
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.feed.posts.count
+        return self.dicoverFeed.count()
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? DiscoverCollectionViewCell){
             
-            cell.configureCell(post: self.feed.posts[indexPath.row])
+            cell.configureCell(post: self.dicoverFeed.posts[indexPath.row])
             return cell
         }
         else {
@@ -92,6 +102,7 @@ class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICo
         return 0.0
     }
 
+    
     /*
     // MARK: - Navigation
 

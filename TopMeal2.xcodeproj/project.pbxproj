@@ -26,7 +26,7 @@
 		775EF9511DAEA6D5005FA117 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775EF9501DAEA6D5005FA117 /* DataService.swift */; };
 		775EF9531DAEDD7A005FA117 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775EF9521DAEDD79005FA117 /* FeedTableViewCell.swift */; };
 		775EF9551DAEDD8E005FA117 /* FeedPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775EF9541DAEDD8E005FA117 /* FeedPost.swift */; };
-		775EF9571DAEE5BB005FA117 /* FeedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775EF9561DAEE5BA005FA117 /* FeedObject.swift */; };
+		775EF9571DAEE5BB005FA117 /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775EF9561DAEE5BA005FA117 /* FeedManager.swift */; };
 		775EF9591DAFB7F8005FA117 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775EF9581DAFB7F8005FA117 /* PostViewController.swift */; };
 		775EF95B1DB0C613005FA117 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775EF95A1DB0C613005FA117 /* User.swift */; };
 		7764FD781D9DC56A00FA6C7D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7764FD771D9DC56A00FA6C7D /* LogInViewController.swift */; };
@@ -46,6 +46,7 @@
 		77839EA81D8BF3500088B070 /* RecipeSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77839EA71D8BF3500088B070 /* RecipeSearchResult.swift */; };
 		77839EAA1D8BFE750088B070 /* IngredientsDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77839EA91D8BFE750088B070 /* IngredientsDetailTableViewController.swift */; };
 		77839EB01D8C47430088B070 /* SearchCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77839EAF1D8C47430088B070 /* SearchCollectionReusableView.swift */; };
+		778E9C511DBD8D4B00A73B1D /* TMFeedCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778E9C501DBD8D4A00A73B1D /* TMFeedCollectionController.swift */; };
 		7792A1451DB7F433007119F2 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7792A1441DB7F433007119F2 /* Loadable.swift */; };
 		7792A1481DB81F9E007119F2 /* TMCustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7792A1471DB81F9E007119F2 /* TMCustomTabBar.swift */; };
 		7794705A1D9A65850059ECF0 /* RevealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779470591D9A65850059ECF0 /* RevealViewController.swift */; };
@@ -78,7 +79,7 @@
 		775EF9501DAEA6D5005FA117 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		775EF9521DAEDD79005FA117 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		775EF9541DAEDD8E005FA117 /* FeedPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedPost.swift; sourceTree = "<group>"; };
-		775EF9561DAEE5BA005FA117 /* FeedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedObject.swift; sourceTree = "<group>"; };
+		775EF9561DAEE5BA005FA117 /* FeedManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
 		775EF9581DAFB7F8005FA117 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		775EF95A1DB0C613005FA117 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7764FD771D9DC56A00FA6C7D /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +104,7 @@
 		77839EA71D8BF3500088B070 /* RecipeSearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeSearchResult.swift; sourceTree = "<group>"; };
 		77839EA91D8BFE750088B070 /* IngredientsDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsDetailTableViewController.swift; sourceTree = "<group>"; };
 		77839EAF1D8C47430088B070 /* SearchCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCollectionReusableView.swift; sourceTree = "<group>"; };
+		778E9C501DBD8D4A00A73B1D /* TMFeedCollectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMFeedCollectionController.swift; sourceTree = "<group>"; };
 		7792A1441DB7F433007119F2 /* Loadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		7792A1471DB81F9E007119F2 /* TMCustomTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMCustomTabBar.swift; sourceTree = "<group>"; };
 		779470591D9A65850059ECF0 /* RevealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevealViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 		775EF9411DA90FF8005FA117 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				775EF95A1DB0C613005FA117 /* User.swift */,
 				77839EA51D8BF0D20088B070 /* Recipe.swift */,
 			);
 			name = Model;
@@ -238,6 +241,7 @@
 		775EF9431DA91001005FA117 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				778E9C501DBD8D4A00A73B1D /* TMFeedCollectionController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -273,7 +277,7 @@
 				775EF94C1DAAB6DA005FA117 /* FeedViewController.swift */,
 				775EF9521DAEDD79005FA117 /* FeedTableViewCell.swift */,
 				775EF9541DAEDD8E005FA117 /* FeedPost.swift */,
-				775EF9561DAEE5BA005FA117 /* FeedObject.swift */,
+				775EF9561DAEE5BA005FA117 /* FeedManager.swift */,
 			);
 			name = Feed;
 			sourceTree = "<group>";
@@ -299,9 +303,9 @@
 		77839E711D8AD4CD0088B070 /* TopMeal2 */ = {
 			isa = PBXGroup;
 			children = (
+				77839E981D8B4A3D0088B070 /* SWRevealViewController */,
 				7792A1461DB7F6BE007119F2 /* Protocols */,
 				7701FFE91DBAC8530012EE2B /* Extensions */,
-				77839E981D8B4A3D0088B070 /* SWRevealViewController */,
 				775EF9411DA90FF8005FA117 /* Model */,
 				775EF9421DA90FFD005FA117 /* View */,
 				775EF9431DA91001005FA117 /* Controller */,
@@ -311,7 +315,6 @@
 				7701FFE01DBAB49E0012EE2B /* Discover */,
 				77839E721D8AD4CD0088B070 /* AppDelegate.swift */,
 				777A7EA41DB44A6700825467 /* RequestHelper.swift */,
-				775EF95A1DB0C613005FA117 /* User.swift */,
 				772FB0241DA08AD900E0399C /* SettingsTableViewController.swift */,
 				77839E761D8AD4CD0088B070 /* Main.storyboard */,
 				7792A1471DB81F9E007119F2 /* TMCustomTabBar.swift */,
@@ -550,7 +553,7 @@
 				77839E731D8AD4CD0088B070 /* AppDelegate.swift in Sources */,
 				7701FFEF1DBAE9110012EE2B /* DiscoverSearchResultCell.swift in Sources */,
 				775EF95B1DB0C613005FA117 /* User.swift in Sources */,
-				775EF9571DAEE5BB005FA117 /* FeedObject.swift in Sources */,
+				775EF9571DAEE5BB005FA117 /* FeedManager.swift in Sources */,
 				77839EAA1D8BFE750088B070 /* IngredientsDetailTableViewController.swift in Sources */,
 				7701FFE21DBAB8190012EE2B /* DiscoverViewController.swift in Sources */,
 				77839E871D8AD5700088B070 /* SearchCollectionViewCell.swift in Sources */,
@@ -574,6 +577,7 @@
 				775EF93C1DA7AE43005FA117 /* UIColor+CustomColor.swift in Sources */,
 				7701FFE61DBABDEF0012EE2B /* DiscoverCollectionViewCell.swift in Sources */,
 				7736DA571D928FB300AE4792 /* TagButton.swift in Sources */,
+				778E9C511DBD8D4B00A73B1D /* TMFeedCollectionController.swift in Sources */,
 				7792A1451DB7F433007119F2 /* Loadable.swift in Sources */,
 				7736DA511D91AF8300AE4792 /* SearchResultTableViewCell.swift in Sources */,
 				776858D71DBA9F820077128B /* Pagination.swift in Sources */,

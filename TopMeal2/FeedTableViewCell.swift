@@ -49,8 +49,6 @@ class FeedTableViewCell: UITableViewCell {
         
         self._numLikes = post.numLikes
         self.likesLabel.text = String(self._numLikes) + " likes"
-        
-        
     }
     
     

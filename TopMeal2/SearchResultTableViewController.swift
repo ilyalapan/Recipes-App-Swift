@@ -51,16 +51,16 @@ class SearchResultTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if ( indexPath.row == (self.searchObject.searchResults.count - 1) ) && (!self.searchObject.noMoreResults)
         {
-            self.searchObject.loadNextSearchResults{result in
-                if result == "Success"{
+            self.searchObject.loadMore{result in
+                if result == ServerRequestResponse.Success{
                     self.tableView.reloadData()
                 }
-                else if result == "No results"
+                else if result == ServerRequestResponse.Empty
                 {
                     return
                 }
                 else {
-                    let alert = UIAlertController(title: "Error", message: result, preferredStyle: UIAlertControllerStyle.alert)
+                    let alert = UIAlertController(title: "Error", message: result.rawValue, preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 }

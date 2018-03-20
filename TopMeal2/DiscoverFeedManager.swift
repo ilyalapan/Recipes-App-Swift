@@ -27,6 +27,9 @@ class DiscoverFeedManager: Loadable, Pagination{
         }
     }
     
+    func count() -> Int {
+        return self.posts.count
+    }
     
     //MARK:Pagination
     

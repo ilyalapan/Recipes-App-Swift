@@ -73,8 +73,8 @@
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="xqH-B5-AMU" id="SLk-mM-uAf"/>
-                                    <outlet property="delegate" destination="xqH-B5-AMU" id="Ola-v1-s46"/>
+                                    <outlet property="dataSource" destination="xqH-B5-AMU" id="AvJ-qU-Lnn"/>
+                                    <outlet property="delegate" destination="xqH-B5-AMU" id="jCg-DL-nwO"/>
                                 </connections>
                             </collectionView>
                         </subviews>
@@ -82,8 +82,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="pVi-8u-1zp"/>
                     <connections>
-                        <outlet property="collectionView" destination="8Lh-4S-KwL" id="2xk-MQ-sKQ"/>
+                        <outlet property="collectionView" destination="8Lh-4S-KwL" id="G9p-gm-lN6"/>
                         <outlet property="navigationItemSearchBar" destination="pVi-8u-1zp" id="OU3-qx-wI0"/>
+                        <outlet property="view" destination="UcB-x8-isj" id="eDE-Qk-51W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z3i-XC-esZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -460,10 +461,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="513" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="G8D-Gn-9gb">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="513" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="G8D-Gn-9gb">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="feedCell" rowHeight="513" id="rP1-Cb-2Rm" customClass="FeedTableViewCell" customModule="TopMeal2" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="feedCell" rowHeight="513" id="rP1-Cb-2Rm" customClass="FeedTableViewCell" customModule="TopMeal2" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1" width="375" height="513"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rP1-Cb-2Rm" id="2P4-PV-4td">
@@ -497,7 +498,7 @@
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U3N-kJ-ddS">
+                                                <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U3N-kJ-ddS">
                                                     <frame key="frameInset" minX="76" minY="37" width="199" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.63529411764705879" green="0.97254901960784312" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
@@ -511,7 +512,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0J-DQ-MCY">
+                                                <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0J-DQ-MCY">
                                                     <frame key="frameInset" minX="22" minY="474" width="32" height="28"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="like_notactive"/>
@@ -520,7 +521,7 @@
                                                         <action selector="likeButtonPressed:" destination="LC4-1p-SPL" eventType="touchUpInside" id="aym-CR-wz8"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Z4-CR-O1l">
+                                                <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Z4-CR-O1l">
                                                     <frame key="frameInset" minX="73" minY="471" width="31" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="comment"/>

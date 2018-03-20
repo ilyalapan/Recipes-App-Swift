@@ -14,7 +14,7 @@ protocol Pagination {
     func getURLMoreString() -> String
     func updateArray(array: [Dictionary<String,AnyObject>] )
     func loadMore(idToken: String, completed: @escaping (ServerRequestResponse) -> Void )
-
+    
 }
 
 extension Pagination {

@@ -44,7 +44,6 @@ class FeedPost{
     
     init(dict: Dictionary<String,AnyObject>){
         
-        print(dict)
         _recipe = Recipe( (dict["recipeName"] as? String)!, (dict["recipeID"] as? Int)! )
         _id = Int((dict["id"] as? Int)!)
         _time = NSDate(timeIntervalSince1970: (dict["recipeID"] as? Double)!)

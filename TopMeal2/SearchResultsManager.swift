@@ -42,6 +42,10 @@ class SearchResultsManager: Loadable {
         }
     }
     
+    func count() -> Int {
+        return self.users.count
+    }
+    
 
     
 }

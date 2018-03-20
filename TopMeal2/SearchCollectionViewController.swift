@@ -232,9 +232,9 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
         self.progressBarDisplayer(msg: messages[randomIndex], true)
         self.view.isUserInteractionEnabled = false
         
-        self.searchObject.loadInitialSearchResults{result in
+        self.searchObject.load(){result in
             self.view.isUserInteractionEnabled = true
-            if result == "Success" {
+            if result == ServerRequestResponse.Success {
                 print(self.searchObject)
                 self.performSegue(withIdentifier: "searchResultsSegue", sender: self.searchObject)
                 self.messageFrame.removeFromSuperview()
@@ -242,7 +242,7 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
             else
             {
                 //Output Error
-                let alert = UIAlertController(title: "Error", message: result, preferredStyle: UIAlertControllerStyle.alert)
+                let alert = UIAlertController(title: "Error", message: result.rawValue, preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
                 self.messageFrame.removeFromSuperview()

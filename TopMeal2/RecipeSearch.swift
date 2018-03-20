@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class RecipeSearch {
+class RecipeSearch: Loadable, Pagination {
     
     var ingridients: [String] = []
     var types: [String] = []
@@ -28,10 +28,22 @@ class RecipeSearch {
     var searchResults: [RecipeSearchResult] = []
     
     
-    func searchResultsURLString() -> String{
+    
+    
+    //#MARK: - Loadable
+    
+    func loadArray(array: Array<Dictionary<String, AnyObject>> ){
+        self.searchResults = []
+        for recipeSearchResultDict in array{
+            let result = RecipeSearchResult(dict: recipeSearchResultDict)
+            self.searchResults.append(result)
+        }
+    }
+    
+    func getURLFetchString() -> String{
         let ingredientStrings = self.ingridients.map{ $0.lowercased() }
         var URLString = "http://topmeal-142219.appspot.com/search?ingredients=" + ingredientStrings.joined(separator: ",").addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-        URLString = URLString + "&start=" + String(self.searchResults.count) // Do not need -1 correction
+        URLString = URLString + "&start=0"
         if vegan{
             URLString += "&vegan=1"
         }
@@ -53,19 +65,32 @@ class RecipeSearch {
         
         URLString += "&type=" + self.types.joined(separator: ",")
         
-        print(URLString) //DEBUG
         return URLString
+    }
+
+    func count() -> Int {
+        return self.searchResults.count
     }
     
     
-    
-    func loadArray(array: Array<Dictionary<String, AnyObject>> ){
+    //#MARK: - Pagination
+
+    func updateArray(array: [Dictionary<String, AnyObject>]) {
         for recipeSearchResultDict in array{
             let result = RecipeSearchResult(dict: recipeSearchResultDict)
             self.searchResults.append(result)
         }
     }
     
+    func getURLMoreString() -> String{
+        var URLString = getURLFetchString()
+        URLString = URLString + "&start=" + String(self.searchResults.count)
+        return URLString
+    }
+
+    
+    
+    /*
     func loadNextSearchResults(completed: @escaping (String) -> Void )  {
         
         let URLString = self.searchResultsURLString()
@@ -98,12 +123,13 @@ class RecipeSearch {
             completed("Unknown Error") //Did not catch error
         }
     }
-    
+    */
+    /*
     func loadInitialSearchResults(completed: @escaping (String) -> Void )  {
         self.searchResults = []
         self.loadNextSearchResults(completed: completed)
         
-    }
+    }*/
 
     
     

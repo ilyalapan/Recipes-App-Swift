@@ -11,6 +11,7 @@ import Firebase
 
 let DB_BASE = FIRDatabase.database().reference()
 
+//Not used, deprecated, get rid of 
 class DataService{
     
     static let ds = DataService()

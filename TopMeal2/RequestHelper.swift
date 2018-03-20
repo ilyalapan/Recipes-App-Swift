@@ -35,6 +35,15 @@ class RequestHelper { //TODO: possibly make this an extension of Alamofire
     
     static let helper = RequestHelper()
     
+    
+    
+    /// Performs status check of the reposne returning the result of the parsing
+    ///
+    /// - parameter responseJSON: JSON Response received from Alamofire (unserialised, just data)
+    ///
+    /// - throws:  propagates any errors and throws BadResponse if cant parse response in to JSON
+    ///
+    /// - returns: [Dictionary<String, AnyObject>] - dictionary of parsed values from JSON
     static func checkResponse(responseJSON:  Alamofire.DataResponse<Any> ) throws -> [Dictionary<String, AnyObject>] {
         if let JSON = responseJSON.result.value {
             if let dict =  JSON as? Dictionary<String, AnyObject>{
@@ -54,6 +63,11 @@ class RequestHelper { //TODO: possibly make this an extension of Alamofire
     
     
     
+    /// Performs status check of the reposne without returning the result of the parsing
+    ///
+    /// - parameter responseJSON: JSON Response received from Alamofire (unserialised, just data)
+    ///
+    /// - throws: propagates any errors and throws BadResponse if cant parse response in to JSON
     static func checkStatus(responseJSON: Alamofire.DataResponse<Any> ) throws  {
         if let JSON = responseJSON.result.value {
             if let dict =  JSON as? Dictionary<String, AnyObject>{
@@ -63,8 +77,8 @@ class RequestHelper { //TODO: possibly make this an extension of Alamofire
                 }
             }
         }
-        print("You didn't include reponse status in the backend implementation")
-        throw ServerResponseError.NoResponseStatus
+        print("Bad Response")
+        throw ServerResponseError.BadResponse
     }
     
     
@@ -83,7 +97,7 @@ class RequestHelper { //TODO: possibly make this an extension of Alamofire
                 case ServerRequestResponse.Success:
                     return
                 case ServerRequestResponse.Unathorised:
-                    print("User is no authorised")
+                    print("User is not authorised")
                     throw ServerResponseError.Unathorised
                 case ServerRequestResponse.BadRequest:
                     print("You made a bad request to the server")
@@ -92,7 +106,7 @@ class RequestHelper { //TODO: possibly make this an extension of Alamofire
                     print("Back-end failed the operation for a known reason")
                     throw ServerResponseError.Failed
                 case ServerRequestResponse.Empty:
-                    print("Back-end failed the operation for a known reason")
+                    print("Empty")
                     throw ServerResponseError.Empty
                 default:
                     print("Unknown error")

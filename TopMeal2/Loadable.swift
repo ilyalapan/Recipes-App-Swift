@@ -15,6 +15,8 @@ protocol Loadable {
     func getURLFetchString() -> String
     func loadArray(array: [Dictionary<String,AnyObject>] )
     
+    func count() -> Int //count number of elements, supporting non trivial counting
+    
 }
 
 extension Loadable {
